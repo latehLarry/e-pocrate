@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light foi-navbar">
+    <a class="navbar-brand" [routerLink]="['/home']">
+        <img src="assets/img/mlogo.png" alt="e-pocrate">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/home']">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about-us']">A propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/doctor-signin']">Je suis
+                  médecin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/find-doctor']">Trouver un
+                  médecin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="btn btn-secondary" [routerLink]="['/choose-signin']">Se Connecter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+

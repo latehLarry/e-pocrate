@@ -1,1 +1,29 @@
-<p>choose-signup works!</p>
+<header class="foi-header">
+    <div class="container">
+        <app-header></app-header>
+    </div>
+  </header>
+  
+  
+    
+  <section class="py-5 mb-5">
+    <div class="container">
+        <h2 style="text-align: center;">Choisissez votre mode d'inscription</h2>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card pricing-card border-primary">
+                    <div class="card-body">
+                        <p><a [routerLink]="['/doctor-signup']" class="btn btn-primary btn-rounded">JE SUIS MÉDÉCIN</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card pricing-card border-primary">
+                    <div class="card-body">
+                        <p><a [routerLink]="['/patient-signup']"   class="btn btn-primary btn-rounded">JE SUIS PATIENT</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>

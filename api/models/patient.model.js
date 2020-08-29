@@ -3,7 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
 
-let docSchema = new Schema ({
+let patSchema = new Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   name: { type: String, required: "SVP entrer votre nom! <br>" },
   surname: { type: String, required: "SVP entrer votre prenom!" },
   email: { type: String, required: "SVP entrer votre addresse email!", unique: true },
@@ -14,11 +15,6 @@ let docSchema = new Schema ({
   postal_code: { type: String, required: "SVP entrer votre code postal!" },
   country: { type: String, required: "SVP entrer votre pays de résidence!" },
   city: { type: String, required: "SVP entrer votre ville de résidence!" },
-  ref_no: { type: String, required: "SVP entrer votre numero d\'agrement!" },
-  doc_order: { type: String, required: "SVP remplissez le champ suivant Étes-vous inscrit au tableau de l\'ordre des médecins de votre pays?!" },
-  faculty: { type: String, required: "SVP remplissez votre faculté!" },
-  city_obt: { type: String, required: "SVP remplissez la ville de la faculté!" },
-  ctry_obt: { type: String, required: "SVP remplissez le pays d\'obtention du diplome!" },
   username: { type: String, required: "SVP entrer votre nom d\'utilisateur!" },
   gender: { type: String, required: "SVP precisez votre sexe!" },
   password: { type: String, required: "SVP entrer un mot de passe!", minlength: [8, "Le mot de passe doit contenir au moins 8 caractères"] },
@@ -29,14 +25,14 @@ let docSchema = new Schema ({
 });
 
 
-docSchema.path('email').validate((val) => {
+patSchema.path('email').validate((val) => {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return emailRegex.test(val);
 }, "Le format de votre addresse email est invalide");
 
 
 //Events for password security
-docSchema.pre('save', function (next) {
+patSchema.pre('save', function (next) {
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(this.password, salt, (err, hash) => {
       this.password = hash;
@@ -46,11 +42,11 @@ docSchema.pre('save', function (next) {
   });
 });
 
-docSchema.methods.verifyPassword = function (password) {
+patSchema.methods.verifyPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
-};
+}
 
-docSchema.methods.generateJwt = function () {
+patSchema.methods.generateJwt = function () {
   return jwt.sign({ _id: this._id },
     process.env.JWT_SECRET,
     {
@@ -60,4 +56,4 @@ docSchema.methods.generateJwt = function () {
 
 
 
-module.exports = mongoose.model("Doctor", docSchema, "doctors"); 
+module.exports = mongoose.model("Patient", patSchema, "patients");

@@ -1,0 +1,27 @@
+.mat-button, .mat-icon-button, .mat-stroked-button {
+    color: white;
+    background: darkcyan;
+}
+
+span {
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgb(218, 100, 100);
+  }
+
+  input[type="date"] {
+    -webkit-appearance: listbox;
+    -moz-appearance: listbox;
+  }
+  
+  .image-preview {
+    height: 15rem;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .image-preview img {
+    height: 70%;
+    border-radius: 115px;
+  }

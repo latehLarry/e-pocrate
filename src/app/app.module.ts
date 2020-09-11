@@ -1,11 +1,19 @@
+import { AdminAuthGuard } from './auth/admin/admin-auth.guard';
+import { AdminService } from 'src/app/services/admin/admin.service';
+import { AdminAuthInterceptor } from './auth/admin/admin-auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule, MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +31,17 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DoctorSignupSuccessComponent } from './components/registration/doctor-signup-success/doctor-signup-success.component';
+import { PatientSignupSuccessComponent } from './components/registration/patient-signup-success/patient-signup-success.component';
+import { AddCvComponent } from './components/registration/add-cv/add-cv.component';
+import { AdminSignupComponent } from './components/registration/admin-signup/admin-signup.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminNotificationsComponent } from './admin/admin-notifications/admin-notifications.component';
+import { DoctorListComponent } from './admin/doctor-list/doctor-list.component';
+import { PatientListComponent } from './admin/patient-list/patient-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +57,17 @@ import { HttpClientModule } from '@angular/common/http';
     AdminHomeComponent,
     AdminLoginComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DoctorSignupSuccessComponent,
+    PatientSignupSuccessComponent,
+    AddCvComponent,
+    AdminSignupComponent,
+    AdminHeaderComponent,
+    AdminNavbarComponent,
+    AdminDashboardComponent,
+    AdminNotificationsComponent,
+    DoctorListComponent,
+    PatientListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,12 +76,26 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AdminAuthInterceptor,
+      multi: true,
+    },
+    AdminService,
+    AdminAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

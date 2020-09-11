@@ -10,7 +10,7 @@ exports.patRegister = (req, res, next) => {
     email: req.body.email,
     tel: req.body.tel,
     dob: req.body.dob,
-    photo: url + '/uploads/images/patients' + req.file.filename,
+    photo: url + '/uploads/images/patients/' + req.file.filename,
     address: req.body.address,
     postal_code: req.body.postal_code,
     country: req.body.country,

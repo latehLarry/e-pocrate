@@ -1,0 +1,48 @@
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <ul>
+          <li class="menu-title">Main</li>
+          <li class="active">
+            <a [routerLink]="['/admin-home']" routerLinkActive="router-link-active" ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+          </li>
+          <li>
+            <a [routerLink]="['/doctors-list']" routerLinkActive="router-link-active" ><i class="fa fa-user-md"></i> <span>Médecins</span></a>
+          </li>
+          <li>
+            <a [routerLink]="['/patients-list']" routerLinkActive="router-link-active" ><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+          </li>
+          <li>
+            <a [routerLink]="['/appointments']" routerLinkActive="router-link-active" ><i class="fa fa-calendar"></i> <span>Rendez-Vous</span></a>
+          </li>
+          <li>
+            <a [routerLink]="['/doctor-schedule']" routerLinkActive="router-link-active" ><i class="fa fa-calendar-check"></i> <span>Horaires du médecin</span></a>
+          </li>
+          <li>
+            <a [routerLink]="['/events']" routerLinkActive="router-link-active" ><i class="fa fa-hospital"></i> <span>Evenements</span></a>
+          </li>
+          <li class="submenu">
+            <a href="#"><i class="fa fa-user"></i> <span>blog </span> <span class="fa fa-plus"></span></a>
+            <ul style="display: none;">
+              <li><a [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Catégories</a></li>
+              <li><a [routerLink]="['/routePath']" routerLinkActive="router-link-active">Articles</a></li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/chat']" routerLinkActive="router-link-active" ><i class="fa fa-comments"></i> <span>Chat</span> <span
+                class="badge badge-pill bg-primary float-right">5</span></a>
+          </li>
+          <li class="submenu">
+            <a href="#"><i class="fa fa-video camera"></i> <span> Appels</span> <span class="fa fa-plus"></span></a>
+            <ul style="display: none;">
+              <li><a [routerLink]="['/voice-call']" routerLinkActive="router-link-active" >Appel Vocal</a></li>
+              <li><a [routerLink]="['/video-call']" routerLinkActive="router-link-active">Appel Video</a></li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/settings']" routerLinkActive="router-link-active" ><i class="fa fa-cog"></i> <span>parametres</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

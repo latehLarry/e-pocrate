@@ -1,0 +1,107 @@
+<header class="foi-header">
+    <div class="container">
+     <app-header></app-header>
+    </div>
+</header>
+
+
+<main class="epocrate-main" style="background-image: url(assets/images/banner_bg.png);">
+    <section class="epocrate-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 epocrate-title text-center">
+            <h3>Créer Compte Admin</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12 offset=md-1">
+          <div class="col-lg-12 col-md-12 epocrate-form card pricing-card border-primary">
+            <div class="epocrate-form-elements">
+                <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+                    <div class="spinner-content">
+                        <mat-spinner> Veillez Patienter!</mat-spinner>
+                    </div>
+                  </div>
+                <form [formGroup]="adminAdd" *ngIf="!isLoading">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre nom complet*</label>
+                          <input type="text" class="form-control" formControlName="fullname"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('fullname')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre email*</label>
+                          <input type="text" class="form-control" formControlName="email"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('email')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre Mot de passe*</label>
+                          <input type="password" class="form-control" formControlName="password"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('password')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre numero de telephone*</label>
+                          <input type="text" class="form-control" formControlName="tel"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('tel')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre date de naissance*</label>
+                          <input type="date" class="form-control" formControlName="dob"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('dob')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre photo de profile*</label>
+                          <input type="file" class="form-control" (change)="profileUpload($event)">
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Addresse*</label>
+                          <input type="text" class="form-control" formControlName="address"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('address')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Ville*</label>
+                          <input type="text" class="form-control" formControlName="city"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('city')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Pays*</label>
+                          <input type="text" class="form-control" formControlName="ctry"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('ctry')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn button primary-button" (click)="onSubmit()" >Soumettre</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <app-footer></app-footer>
+

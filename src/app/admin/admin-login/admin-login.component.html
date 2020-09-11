@@ -1,1 +1,58 @@
-<p>admin-login works!</p>
+<header class="foi-header">
+    <div class="container">
+     <app-header></app-header>
+    </div>
+</header>
+
+
+<main class="epocrate-main" style="background-image: url(assets/images/banner_bg.png);">
+    <section class="epocrate-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 epocrate-title text-center">
+            <h3>Connexion Admin</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12 offset=md-1">
+          <div class="col-lg-12 col-md-12 epocrate-form card pricing-card border-primary">
+            <div class="epocrate-form-elements">
+                <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+                    <div class="spinner-content">
+                        <mat-spinner> Veillez Patienter!</mat-spinner>
+                    </div>
+                  </div>
+                <form [formGroup]="adminLogin" *ngIf="!isLoading">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre email*</label>
+                          <input type="email" class="form-control" formControlName="email"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('email')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre mot de passe*</label>
+                          <input type="password" class="form-control" formControlName="password"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('password')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn button primary-button" (click)="onSubmit()" >connexion</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <app-footer></app-footer>

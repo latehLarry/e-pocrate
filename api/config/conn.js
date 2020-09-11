@@ -11,3 +11,5 @@ error => {
   console.log("Database could not be connected: " + error)
 }
 );
+
+require("../models/admin.model");

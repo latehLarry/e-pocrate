@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
 let docSchema = new Schema ({
-  name: { type: String, required: "SVP entrer votre nom! <br>" },
+  name: { type: String, required: "SVP entrer votre nom!" },
   surname: { type: String, required: "SVP entrer votre prenom!" },
   email: { type: String, required: "SVP entrer votre addresse email!", unique: true },
   tel: { type: String, required: "SVP entrer votre numero de telephone!" },
@@ -27,6 +28,8 @@ let docSchema = new Schema ({
   active: { type: Boolean, required: true },
   salt_secret: String
 });
+
+docSchema.plugin(uniqueValidator);
 
 
 docSchema.path('email').validate((val) => {

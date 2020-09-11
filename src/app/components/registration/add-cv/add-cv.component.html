@@ -1,0 +1,68 @@
+<header class="foi-header">
+    <div class="container">
+     <app-header></app-header>
+    </div>
+</header>
+
+
+<main class="epocrate-main" style="background-image: url(assets/images/banner_bg.png);">
+    <section class="epocrate-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 epocrate-title text-center">
+            <h3>Soumettez votre CV SVP</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12 offset=md-1">
+          <div class="form-image">
+            <img class="img-fluid" src="assets/images/img2.png" alt="">
+          </div>
+          <div class="col-lg-12 col-md-12 epocrate-form card pricing-card border-primary">
+            <div class="epocrate-form-elements">
+                <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+                    <div class="spinner-content">
+                        <mat-spinner> Veillez Patienter!</mat-spinner>
+                    </div>
+                  </div>
+                <form [formGroup]="doctorCv" *ngIf="!isLoading">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre nom complet*</label>
+                          <input type="text" class="form-control" formControlName="fullname" id="" aria-describedby="helpId" placeholder="Votre nom complet svp*">
+                          <span *ngIf="isValid('fullname')">Ce champ ne peut pas etre vide!</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12">
+                        <div class="form-group">
+                          <label for="">Votre CV*</label>
+                          <input type="file" class="form-control" (change)="cvUpload($event)">
+                        </div>
+                      </div>
+                      <div class="alert alert-warning" role="alert">
+                        NB: SVP le nom du document doit porter votre nom complet (ex. okoli_jean.pdf) <br>
+                        et la taille ne doit pas dépassé 5 Mo.
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn button primary-button" (click)="onCvSubmit()" >Soumettre</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <app-footer></app-footer>
+
+
+
+

@@ -1,9 +1,11 @@
 require("./config/config");
 require("./config/conn");
+require("./config/passportConfig/adminConfig");
 
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const adminRoutes = require("./routes/admin.routes");
 const docRoute = require("./routes/doctor.routes");
 const patRoute = require("./routes/patient.routes");
 
@@ -24,6 +26,7 @@ server.use('/uploads/documents/patients', express.static('uploads/documents/pati
 server.use(cors({origin: "*"}));
 
 //routes
+server.use("/api/admin", adminRoutes);
 server.use("/api/doctors", docRoute);
 server.use("/api/patients", patRoute);
 

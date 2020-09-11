@@ -1,6 +1,7 @@
 import { DoctorService } from './../../../services/doctor/doctor.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-signup',
@@ -15,7 +16,7 @@ export class DoctorSignupComponent implements OnInit {
   isLoading = false;
 
 
-  constructor(private doctorService: DoctorService ) {
+  constructor(private doctorService: DoctorService, private router: Router) {
     this.docReg = new FormGroup({
       name: new FormControl(null, { validators: [Validators.required]}),
       surname: new FormControl(null, { validators: [Validators.required]}),
@@ -90,7 +91,7 @@ export class DoctorSignupComponent implements OnInit {
         this.docReg.value.password,
         this.docReg.value.certify
     ).subscribe(response => {
-      console.log(response);
+      this.router.navigate(["/upload-cv"]);
     });
   }
 

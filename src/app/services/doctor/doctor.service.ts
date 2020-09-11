@@ -1,7 +1,9 @@
+import { Cv } from './../../models/cv.model';
 import { Doctor } from './../../models/doctor.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 const BACKEND_URL = environment.apiUrl + "/doctors/";
 
@@ -52,7 +54,21 @@ export class DoctorService {
    postData.append('gender', gender);
    postData.append('password', password);
    postData.append('certify', certify);
-   return this.http.post(BACKEND_URL, Doctor);
+   return this.http.post<{message: string; doctor: Doctor}>(BACKEND_URL + "add-doctor", postData);
   }
+
+   // add cv
+   addCv(fullname: string, profileCv: File): Observable<any> {
+    var formData: any = new FormData();
+    formData.append("fullname", fullname);
+    formData.append("cv", profileCv);
+    return this.http.post<{message: string; cv:Cv}>(BACKEND_URL + "add-cv", formData)
+  }
+
+  getAllDoctors() {
+    return this.http.get(BACKEND_URL + "/doctors-list");
+  }
+
+ 
 
 }

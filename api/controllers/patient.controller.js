@@ -1,4 +1,4 @@
-const Patient = require("../models/Patient.model");
+const Patient = require("../models/patient.model");
 const mongoose = require("mongoose");
 
 exports.patRegister = (req, res, next) => {

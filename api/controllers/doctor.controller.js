@@ -1,6 +1,7 @@
 const Doctor = require("../models/doctor.model");
 const Cv = require("../models/cv.model");
 const nodemailer = require("nodemailer");
+const { error } = require("protractor");
 
 //SMPTP credentialls
 const transporter = nodemailer.createTransport({
@@ -35,6 +36,7 @@ exports.docRegister = (req, res, next) => {
     postal_code: req.body.postal_code,
     country: req.body.country,
     city: req.body.city,
+    spec: req.body.spec,
     ref_no: req.body.ref_no,
     doc_order: req.body.doc_order,
     faculty: req.body.faculty,
@@ -95,6 +97,79 @@ exports.getAllDoctors = (req, res, next) => {
       doctors: data
     })
   });
+}
+
+exports.getDoctorById = (req, res, next) => {
+  Doctor.findById(req.params.id, (error, data) => {
+    if(error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+}
+
+/*exports.updateDoctorInfo = (req, res, next) => {
+  Doctor.findByIdAndUpdate(req.params.id, (error, data) => {
+    if(error) {
+      return next(error)
+    } else {
+      res.json(data);
+    }
+  })
+}*/
+
+exports.updateDoctorInfo = (req, res, next) => {
+  let imagePath = req.body.imagePath;
+  if (req.file) {
+    const imgurl = req.protocol + "://" + req.get("host");
+    imagePath = imgurl + "/uploads/images/doctors/" + req.file.filename;
+  }
+  const doctor = new Doctor({
+    _id: req.body.id,
+    name: req.body.name,
+    surname: req.body.surname,
+    email: req.body.email,
+    tel: req.body.tel,
+    dob: req.body.dob,
+    photo: imagePath,
+    address: req.body.address,
+    postal_code: req.body.postal_code,
+    country: req.body.country,
+    city: req.body.city,
+    spec: req.body.spec,
+    ref_no: req.body.ref_no,
+    doc_order: req.body.doc_order,
+    faculty: req.body.faculty,
+    city_obt: req.body.city_obt,
+    ctry_obt: req.body.ctry_obt,
+    username: req.body.username,
+    gender: req.body.gender,
+    password: req.body.password,
+    active: req.body.active,
+  });
+  Doctor.updateOne({_id: req.params.id}, doctor)
+  .then(result => {
+    if (result) {
+      res.status(200).json({message: "Update done successfully!"});
+    } else {
+      res.status(500).json({message: "Could not Update"});
+    }
+  })
+  /*.catch(error => {
+    res.status(500).json({message: "Could not Update!"});
+  });*/
+} 
+
+exports.deleteDoctor = (req, res, next) => {
+  Doctor.deleteOne({_id: req.params.id})
+  .then(result => {
+    if (result) {
+      res.status(200).json({message: "Delete successful"})
+    } else {
+      res.status(500).json({message: "Delete not successful"})
+    }
+  })
 }
 
 

@@ -1,3 +1,9 @@
+import { ConsultationBookingComponent } from './patient/consultation-booking/consultation-booking.component';
+import { ViewDoctorInfoComponent } from './patient/view-doctor-info/view-doctor-info.component';
+import { FindDoctorComponent } from './patient/find-doctor/find-doctor.component';
+import { PatientHomeComponent } from './patient/patient-home/patient-home.component';
+import { EditDoctorComponent } from './admin/edit-doctor/edit-doctor.component';
+import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
 import { PatientListComponent } from './admin/patient-list/patient-list.component';
 import { DoctorListComponent } from './admin/doctor-list/doctor-list.component';
 import { AdminAuthGuard } from './auth/admin/admin-auth.guard';
@@ -16,6 +22,7 @@ import { ChooseSigninComponent } from './components/signin/choose-signin/choose-
 import { HomeComponent } from './components/home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -33,7 +40,15 @@ const routes: Routes = [
   {path: 'admin-signin', component: AdminLoginComponent},
   {path: 'admin-home', component:AdminDashboardComponent, canActivate: [AdminAuthGuard] },
   {path: 'doctors-list', component: DoctorListComponent, canActivate: [AdminAuthGuard] },
-  {path: 'patients-list', component: PatientListComponent, canActivate: [AdminAuthGuard] }, 
+  {path: 'patients-list', component: PatientListComponent, canActivate: [AdminAuthGuard]}, 
+  {path: 'doctor-details/:doctorId', component: DoctorDetailsComponent},
+  {path: 'edit-doctor/:doctorId', component: EditDoctorComponent, canActivate: [AdminAuthGuard]},
+  {path: 'patient-home', component: PatientHomeComponent},
+  {path: 'find-doctor', component: FindDoctorComponent},
+  {path: 'doctor-info/:doctorId', component: ViewDoctorInfoComponent},
+  {path: 'doctor-booking/:doctorId', component: ConsultationBookingComponent},
+  {path: 'patient-details/:patId', component: PatientDetailsComponent}
+
   
 
 ];

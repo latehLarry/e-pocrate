@@ -42,6 +42,18 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminNotificationsComponent } from './admin/admin-notifications/admin-notifications.component';
 import { DoctorListComponent } from './admin/doctor-list/doctor-list.component';
 import { PatientListComponent } from './admin/patient-list/patient-list.component';
+import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
+import { EditDoctorComponent } from './admin/edit-doctor/edit-doctor.component';
+import { DoctorHomeComponent } from './doctor/doctor-home/doctor-home.component';
+import { PatientHomeComponent } from './patient/patient-home/patient-home.component';
+import { FindDoctorComponent } from './patient/find-doctor/find-doctor.component';
+import { PatientHeaderComponent } from './patient/patient-header/patient-header.component';
+import { PatientNavbarComponent } from './patient/patient-navbar/patient-navbar.component';
+import { ViewDoctorInfoComponent } from './patient/view-doctor-info/view-doctor-info.component';
+import { PatientNotificationsComponent } from './patient/patient-notifications/patient-notifications.component';
+import { ConsultationBookingComponent } from './patient/consultation-booking/consultation-booking.component';
+import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
+import { EditPatientComponent } from './admin/edit-patient/edit-patient.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +80,18 @@ import { PatientListComponent } from './admin/patient-list/patient-list.componen
     AdminNotificationsComponent,
     DoctorListComponent,
     PatientListComponent,
+    DoctorDetailsComponent,
+    EditDoctorComponent,
+    DoctorHomeComponent,
+    PatientHomeComponent,
+    FindDoctorComponent,
+    PatientHeaderComponent,
+    PatientNavbarComponent,
+    ViewDoctorInfoComponent,
+    PatientNotificationsComponent,
+    ConsultationBookingComponent,
+    PatientDetailsComponent,
+    EditPatientComponent,
   ],
   imports: [
     BrowserModule,

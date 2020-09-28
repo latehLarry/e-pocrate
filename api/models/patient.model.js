@@ -4,12 +4,11 @@ const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
 
 let patSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   name: { type: String, required: "SVP entrer votre nom! <br>" },
   surname: { type: String, required: "SVP entrer votre prenom!" },
   email: { type: String, required: "SVP entrer votre addresse email!", unique: true },
   tel: { type: String, required: "SVP entrer votre numero de telephone!" },
-  dob: { type: Date, required: "SVP entrer votre date de naissance!" },
+  dob: { type: String, required: "SVP entrer votre date de naissance!" },
   photo: { type: String, required: "SVP mettez votre photo de profile!" },
   address: { type: String, required: "SVP entrer votre addresse!" },
   postal_code: { type: String, required: "SVP entrer votre code postal!" },
@@ -20,7 +19,6 @@ let patSchema = new Schema({
   password: { type: String, required: "SVP entrer un mot de passe!", minlength: [8, "Le mot de passe doit contenir au moins 8 caractères"] },
   certify: { type: String },
   creation_date: { type: Date, required: true },
-  active: { type: Boolean, required: true },
   salt_secret: String
 });
 

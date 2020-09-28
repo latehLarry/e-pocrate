@@ -4,6 +4,11 @@
   
     <div class="page-wrapper">
       <div class="content">
+        <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+          <div class="spinner-content">
+              <mat-spinner> Veillez Patienter!</mat-spinner>
+          </div>
+        </div>
         <h2>Médecins</h2>
         <div class="search-bar">
           <mat-form-field class="search-form">
@@ -39,10 +44,10 @@
             </ng-container>
             <ng-container matColumnDef="Actions">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
-              <mat-cell *matCellDef="let row">
-                <a class="" routerLink="" title="Voir" ><i class="fa fa-eye m-r-5"></i></a>
-                <a class="" routerLink="" title="Modifier" >Modifier</a>
-                <a class="ml-3" href="#" data-toggle="modal" data-target="#delete_department" style="color: rgb(248, 54, 54);" title="Supprimer">
+              <mat-cell *matCellDef="let row let element; let i = index">
+                <a class="" [routerLink]="['/doctor-details', element._id]" title="Voir" ><i class="fa fa-eye m-r-5"></i></a>
+                <a class="" [routerLink]="['/edit-doctor', element._id]" title="Modifier" >Modifier</a>
+                <a class="ml-2" href="#" data-toggle="modal" data-target="#delete_patient" (click)="onDelete(element._id)" style="color: rgb(248, 54, 54);" title="Supprimer">
                   Supprimer</a>
                 
               </mat-cell>

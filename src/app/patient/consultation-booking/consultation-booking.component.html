@@ -1,0 +1,76 @@
+<div class="main-wrapper">
+    <app-patient-navbar></app-patient-navbar>
+    <app-patient-header></app-patient-header>
+
+    <div class="page-wrapper">
+      <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Reserver une Consultation</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Médecin</label>
+                                <input class="form-control" type="text" value="Dr. {{docs.name}} {{docs.surname}}" readonly="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                             <label for="">Patient</label>
+                             <input type="text"
+                               class="form-control" name="" id="" aria-describedby="helpId" value="patient name" readonly="">
+                           </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <div class="cal-icon">
+                                    <input type="text" class="form-control datetimepicker">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Heure</label>
+                                <div class="time-icon">
+                                    <input type="text" class="form-control" id="datetimepicker3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Numero de téléphone(Avec code pays)</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Probleme</label>
+                        <textarea cols="30" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <button class="btn btn-primary submit-btn">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+      </div>
+      <app-patient-notifications></app-patient-notifications>
+    </div>
+  <div class="sidebar-overlay" data-reff=""></div>

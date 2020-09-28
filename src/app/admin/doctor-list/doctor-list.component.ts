@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DoctorService } from './../../services/doctor/doctor.service';
 import { Doctor } from './../../models/doctor.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,7 +13,8 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class DoctorListComponent implements OnInit {
 
-  constructor(private doctorService: DoctorService) { }
+  isLoading = false;
+  constructor(private doctorService: DoctorService, private router: Router) { }
   listData: MatTableDataSource<any>;
   doctors: Doctor[] = [];
   displayedColumns: string[] = ['Médecin', 'Photo', 'Email', 'Country', 'Status', 'Actions'];
@@ -33,6 +35,12 @@ export class DoctorListComponent implements OnInit {
 
   applyFilter() {
     this.listData.filter = this.searchkey.trim().toLowerCase();
+  }
+
+  onDelete(doctorId: string) {
+    this.doctorService.deleteDoctor(doctorId).subscribe(res => {
+      this.router.navigate(["/doctors-list"]);
+    })
   }
 
 }

@@ -1,4 +1,5 @@
 export class Doctor {
+    id: string;
     name: string;
     surname: string;
     email: string;
@@ -9,6 +10,7 @@ export class Doctor {
     postal_code: string;
     country: string;
     city: string;
+    spec: string;
     ref_no: string;
     doc_order: string;
     faculty: string;
@@ -18,4 +20,6 @@ export class Doctor {
     gender: string;
     password: string;
     certify: string;
+    creation_date: string;
+    active: string
   }

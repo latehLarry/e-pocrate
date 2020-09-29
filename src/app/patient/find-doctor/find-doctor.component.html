@@ -1,0 +1,54 @@
+<div class="main-wrapper">
+    <app-patient-navbar></app-patient-navbar>
+    <app-patient-header></app-patient-header>
+
+    <div class="page-wrapper">
+      <div class="content">
+          <h2>Trouver un Médecin</h2>
+          <div class="search-bar">
+            <mat-form-field class="search-form">
+              <input matInput [(ngModel)]="searchkey" placeholder="Recherche" (keyup)="applyFilter()">
+            </mat-form-field>
+          </div>
+          <div class="mat-elevation-z8 data-table">
+            <mat-table [dataSource]="listData" matSort>
+              <ng-container matColumnDef="Pays">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Pays</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.country}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Photo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Photo</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <img src="{{element.photo}}" width="70" height="70" alt="Dr. {{element.name}}">
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Spécialisation">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Spécialisation</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.spec}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Médecin</mat-header-cell>
+                <mat-cell *matCellDef="let element">Dr. {{element.name}} {{element.surname}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+                <mat-cell *matCellDef="let row let element; let i = index">
+                  <a class="" [routerLink]="['/doctor-info', element._id]" data-toggle="modal" data-target="#doc_info" title="Voir" ><i class="fa fa-eye m-r-5"></i></a>
+                  <a class="" [routerLink]="['/doctor-booking', element._id]" title="Consulter" >Consulter</a>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="25" showFirstLastButtons></mat-paginator>
+          </div>
+    </div>
+        
+        </div>
+
+      </div>
+      <app-patient-notifications></app-patient-notifications>
+
+  <div class="sidebar-overlay" data-reff=""></div>
+
+

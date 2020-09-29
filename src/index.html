@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700;1,800;1,900&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendors/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/admin_style.css">
 </head>
@@ -21,6 +23,17 @@
   <script src="assets/vendors/popper.js/popper.min.js"></script>
   <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.slimscroll.js"></script>
+  <script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    $(function () {
+        $('#datetimepicker3').datetimepicker({
+            format: 'LT'
+
+        });
+    });
+</script>
 </body>
 </html>

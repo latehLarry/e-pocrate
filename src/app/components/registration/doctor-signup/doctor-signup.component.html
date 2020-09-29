@@ -135,6 +135,14 @@
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="spec"  aria-describedby="helpId"
+                          placeholder="Specialité*">
+                          <span *ngIf="isValid('spec')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
                       <label class="text-black" style="margin: 5px;">Étes-vous inscrit au tableau de l'ordre des médecins devotre
                         pays?*</label><br>
                       <mat-radio-group aria-label="Select an option" formControlName="doc_order">

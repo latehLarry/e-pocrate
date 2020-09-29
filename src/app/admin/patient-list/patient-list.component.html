@@ -1,1 +1,62 @@
-<p>patient-list works!</p>
+<div class="main-wrapper">
+    <app-admin-navbar></app-admin-navbar>
+    <app-admin-header></app-admin-header>
+  
+    <div class="page-wrapper">
+      <div class="content">
+        <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+          <div class="spinner-content">
+              <mat-spinner> Veillez Patienter!</mat-spinner>
+          </div>
+        </div>
+        <h2>Patients</h2>
+        <div class="search-bar">
+          <mat-form-field class="search-form">
+            <input matInput [(ngModel)]="searchkey" placeholder="Recherche" (keyup)="applyFilter()">
+          </mat-form-field>
+            <a routerLink="" class="btn btn-primary btn-rounded text-right ml-3"><i class="fa fa-plus"></i> Ajouter un Médecin</a>
+        </div>
+        <div class="mat-elevation-z8 data-table">
+          <mat-table [dataSource]="listData" matSort>
+            <ng-container matColumnDef="Patient">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Patient</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}} {{element.surname}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Photo">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Photo</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <img src="{{element.photo}}" width="70" height="70" alt="Dr. {{element.name}}">
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Email">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Country">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Pays</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.country}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Status">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Statut</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <span class="custom-badge status-green">Active</span>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Actions">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+              <mat-cell *matCellDef="let row let element; let i = index">
+                <a class="" [routerLink]="['/patient-details', element._id]" title="Voir" ><i class="fa fa-eye m-r-5"></i></a>
+                <a class="" [routerLink]="['/edit-patient', element._id]" title="Modifier" >Modifier</a>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="25" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+      <app-admin-notifications></app-admin-notifications>
+    </div>
+  </div>
+  <div class="sidebar-overlay" data-reff=""></div>
+

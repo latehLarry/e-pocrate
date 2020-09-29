@@ -1,0 +1,117 @@
+<div class="main-wrapper">
+    <app-patient-navbar></app-patient-navbar>
+    <app-patient-header></app-patient-header>
+  
+    <div class="page-wrapper">
+      <div class="content">
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">Profile Médecin</h4>
+            </div>
+
+            <div class="col-sm-5 col-6 text-right m-b-30">
+                <a [routerLink]="['/doctor-booking', docs.id]" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Consulter</a>
+            </div>
+        </div>
+        <div class="card-box profile-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-view">
+                        <div class="profile-img-wrap">
+                            <div class="profile-img">
+                                <a href="#"><img class="avatar" src="{{docs.photo}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="profile-basic">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="profile-info-left">
+                                        <h3 class="user-name m-t-0 mb-0">Dr. {{docs.name}} {{docs.surname}}</h3>
+                                        <small class="text-muted">{{docs.spec}}</small>
+                                        <div class="staff-id">Doctor ID : {{docs.id}}</div>
+                                        <div class="staff-msg"><a [routerLink]="['/chat', docs.id]"  class="btn btn-primary">Envoyer un Méssage</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <ul class="personal-info">
+                                        <li>
+                                            <span class="title">Pays:</span>
+                                            <span class="text">{{docs.country}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Spécialisation:</span>
+                                            <span class="text">{{docs.spec}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Addresse:</span>
+                                            <span class="text">{{docs.address}}, {{docs.city}} - {{docs.country}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Sexe:</span>
+                                            <span class="text">{{docs.gender}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        <div class="profile-tabs">
+
+            <div class="tab-content">
+                <div class="tab-pane show active" id="about-cont">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-box">
+                    <h3 class="card-title">Diplóme ouvrant droit au titre et Indentification</h3>
+                    <div class="experience-box">
+                        <ul class="experience-list">
+                            <li>
+                                <div class="experience-user">
+                                    <div class="before-circle"></div>
+                                </div>
+                                <div class="experience-content">
+                                    <div class="timeline-content">
+                                        <a href="#/" class="name">{{docs.faculty}}</a>
+                                        <div>{{docs.city_obt}}</div>
+                                        <span class="time">{{docs.ctry_obt}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="experience-user">
+                                    <div class="before-circle"></div>
+                                </div>
+                                <div class="experience-content">
+                                    <div class="timeline-content">
+                                        <a href="#/" class="name">Numero d'agrement</a>
+                                        <div>{{docs.ref_no}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="experience-user">
+                                    <div class="before-circle"></div>
+                                </div>
+                                <div class="experience-content">
+                                    <div class="timeline-content">
+                                        <a href="#/" class="name">Inscrit au tableau de l'ordre des médecins de son pays?*</a>
+                                        <div>{{docs.doc_order}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <app-patient-notifications></app-patient-notifications>
+    </div>
+  </div>
+  <div class="sidebar-overlay" data-reff=""></div>

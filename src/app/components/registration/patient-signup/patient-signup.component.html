@@ -1,1 +1,197 @@
-<p>patient-signup works!</p>
+<header class="foi-header">
+    <div class="container">
+     <app-header></app-header>
+    </div>
+</header>
+
+<main class="epocrate-main" style="background-image: url(assets/images/banner_bg.png);">
+  <section class="epocrate-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 epocrate-title text-center">
+          <h3>Inscription Patient</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12 offset=md-1">
+        <div class="form-image">
+          <img class="img-fluid" src="assets/images/img2.png" alt="">
+        </div>
+        <div class="col-lg-12 col-md-12 card pricing-card border-primary">
+          <div class="spinner-overlay-wrapper" *ngIf="isLoading">
+            <div class="spinner-content">
+                <mat-spinner> Veillez Patienter!</mat-spinner>
+            </div>
+          </div>
+          <div class="epocrate-form-elements">
+            <mat-horizontal-stepper>
+              <form [formGroup]="patReg" linear *ngIf="!isLoading">
+                <mat-step label="Informations Personel">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="name"  aria-describedby="helpId" placeholder="Nom*" required>
+                        <span *ngIf="isValid('name')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="surname"  aria-describedby="helpId"
+                          placeholder="Prénom*">
+                          <span *ngIf="isValid('surname')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="email"  aria-describedby="helpId"
+                          placeholder="Email*">
+                          <span *ngIf="isValid('email')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="tel"  aria-describedby="helpId"
+                          placeholder="TelephoneTel*(avec code pays)">
+                          <span *ngIf="isValid('tel')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for="">Sexe*</label>
+                        <select class="form-control" formControlName="gender" >
+                          <option>Homme</option>
+                          <option>Femme</option>
+                        </select>
+                        <span *ngIf="isValid('gender')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for="">Date de Naissance</label>
+                        <input type="text" class="form-control datetimepicker" formControlName="dob"  aria-describedby="helpId"
+                          placeholder="Date de naissance">
+                          <span *ngIf="isValid('dob')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn button primary-button" mat-button matStepperNext>Continuer</button>
+                  </div>
+                </mat-step>
+                <mat-step label="Lieu de résidence">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="address"  aria-describedby="helpId"
+                          placeholder="Adresse">
+                          <span *ngIf="isValid('address')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="city"  aria-describedby="helpId"
+                          placeholder="Ville">
+                          <span *ngIf="isValid('city')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="country"  aria-describedby="helpId"
+                          placeholder="Pays">
+                          <span *ngIf="isValid('country')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control" formControlName="postal_code"  aria-describedby="helpId"
+                          placeholder="Code postal">
+                          <span *ngIf="isValid('postal_code')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn button primary-button" mat-button matStepperPrevious>Retour</button>
+                  <button class="btn button primary-button ml-3" mat-button matStepperNext>Continuer</button>
+                </mat-step>
+                <mat-step label="Fichiers">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12">
+                      <div class="form-group">
+                        <label for="">Photo*</label>
+                        <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelpId" (change)="imageUpload($event)">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-12">
+                      <!-- Image Preview -->
+                      <div class="form-group">
+                        <div class="image-preview" *ngIf="preview && preview !== null">
+                          <img [src]="preview" [alt]="patReg.value.name" class="img-fluid">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn button primary-button" mat-button matStepperPrevious>Retour</button>
+                  <button class="btn button primary-button ml-3" mat-button matStepperNext>Continuer</button>
+                </mat-step>
+                <mat-step label="Informations de compte">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label></label>
+                        <div class="input-group">
+                          <input type="text" formControlName="username" class="form-control" placeholder="Nom d'utilisateur*">
+                        </div>
+                        <span *ngIf="isValid('username')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="password" class="form-control" formControlName="password"  placeholder="Mot de passe*">
+                        <span *ngIf="isValid('password')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for=""></label>
+                        <input type="password" class="form-control" formControlName="c_password" 
+                          placeholder="Confirmer mot de passe*">
+                          <span *ngIf="isValid('c_password')">Ce champ ne peut pas etre vide!</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <label class="row justify-content-center">
+                    <mat-checkbox formControlName="certify" value="oui" color="primary">je certifie sur l'honneur que les informations
+                      reseignées ci-dessus sont exactes<i>*</i></mat-checkbox>
+                  </label>
+                  <br>
+                  <button class="btn button primary-button" mat-button matStepperPrevious>Retour</button>
+                  <button class="btn button primary-button ml-3" (click)="onSubmit()" mat-button matStepperNext>Valider</button>
+                </mat-step>
+              </form>
+            </mat-horizontal-stepper>
+            <p class="mb-0">
+              <a [routerLink]="['/patient-signin']" class="text-dark font-weight-bold">Vous avez déja un compte? Cliquez ici</a>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<app-footer></app-footer>

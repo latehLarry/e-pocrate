@@ -1,9 +1,10 @@
 {
     "development": {
       "PORT": 3000,
-      "MONGODB_URI": "mongodb://127.0.0.1:27017/epocrate",
+      "MONGODB_URI": "mongodb+srv://pocrate:z7C0PETh5NhUxrqv@cluster0.nmh36.mongodb.net/pocrate?retryWrites=true&w=majority",
       "JWT_SECRET": "SECRETepocrate#123456",
-      "JWT_EXP": "1h"
+      "JWT_EXP": "1h",
+      "sendgridKey": "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"
     },
   
     "production": {

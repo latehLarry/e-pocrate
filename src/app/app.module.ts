@@ -13,7 +13,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
+import {
+  MatInputModule,
+  MAT_INPUT_VALUE_ACCESSOR,
+} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +34,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DoctorSignupSuccessComponent } from './components/registration/doctor-signup-success/doctor-signup-success.component';
 import { PatientSignupSuccessComponent } from './components/registration/patient-signup-success/patient-signup-success.component';
@@ -54,6 +58,7 @@ import { PatientNotificationsComponent } from './patient/patient-notifications/p
 import { ConsultationBookingComponent } from './patient/consultation-booking/consultation-booking.component';
 import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
 import { EditPatientComponent } from './admin/edit-patient/edit-patient.component';
+import { AddDoctorComponent } from './admin/add-doctor/add-doctor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +87,7 @@ import { EditPatientComponent } from './admin/edit-patient/edit-patient.componen
     PatientListComponent,
     DoctorDetailsComponent,
     EditDoctorComponent,
+    AddDoctorComponent,
     DoctorHomeComponent,
     PatientHomeComponent,
     FindDoctorComponent,
@@ -109,7 +115,8 @@ import { EditPatientComponent } from './admin/edit-patient/edit-patient.componen
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule,
   ],
   providers: [
     {
@@ -118,8 +125,8 @@ import { EditPatientComponent } from './admin/edit-patient/edit-patient.componen
       multi: true,
     },
     AdminService,
-    AdminAuthGuard
+    AdminAuthGuard,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

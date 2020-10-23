@@ -1,0 +1,348 @@
+<div class="main-wrapper">
+  <app-admin-navbar></app-admin-navbar>
+  <app-admin-header></app-admin-header>
+
+  <div class="page-wrapper">
+    <div class="content">
+      <div class="epocrate-form-elements">
+        <mat-horizontal-stepper>
+          <form [formGroup]="docReg">
+            <mat-step label="Informations Personel">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                      [ngModel]="docs.name"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Surname</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [ngModel]="docs.surname"
+                      formControlName="surname"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="email"
+                      [ngModel]="docs.email"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Telephone(avec code pays)</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="tel"
+                      [ngModel]="docs.tel"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Sexe*</label>
+                    <select
+                      class="form-control"
+                      [ngModel]="docs.gender"
+                      formControlName="gender"
+                    >
+                      <option></option>
+                      <option>Homme</option>
+                      <option>Femme</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Date de Naissance</label>
+                    <input
+                      type="date"
+                      [ngModel]="docs.dob"
+                      class="form-control"
+                      formControlName="dob"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button
+                  class="btn button primary-button"
+                  mat-button
+                  matStepperNext
+                >
+                  Continuer
+                </button>
+              </div>
+            </mat-step>
+            <mat-step label="Lieu de résidence">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Addresse</label>
+                    <input
+                      type="text"
+                      [ngModel]="docs.address"
+                      class="form-control"
+                      formControlName="address"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Ville</label>
+                    <input
+                      type="text"
+                      [ngModel]="docs.city"
+                      class="form-control"
+                      formControlName="city"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Pays</label>
+                    <input
+                      type="text"
+                      [ngModel]="docs.country"
+                      class="form-control"
+                      formControlName="country"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Code Postal</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [ngModel]="docs.postal_code"
+                      formControlName="postal_code"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn button primary-button"
+                mat-button
+                matStepperPrevious
+              >
+                Retour
+              </button>
+              <button
+                class="btn button primary-button ml-3"
+                mat-button
+                matStepperNext
+              >
+                Continuer
+              </button>
+            </mat-step>
+            <mat-step label="Identification et Diplome">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Numero D'agrement</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="ref_no"
+                      [ngModel]="docs.ref_no"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Specialisation</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="spec"
+                      [ngModel]="docs.spec"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <h5>Diplóme ouvrant droit au titre</h5>
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Faculté</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [ngModel]="docs.faculty"
+                      formControlName="faculty"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Ville</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="city_obt"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label for="">Pays</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [ngModel]="docs.ctry_obt"
+                      formControlName="ctry_obt"
+                      aria-describedby="helpId"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn button primary-button"
+                mat-button
+                matStepperPrevious
+              >
+                Retour
+              </button>
+              <button
+                class="btn button primary-button ml-3"
+                mat-button
+                matStepperNext
+              >
+                Continuer
+              </button>
+            </mat-step>
+            <mat-step label="Fichiers">
+              <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="">Photo*</label>
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      id="photo"
+                      aria-describedby="fileHelpId"
+                      placeholder=""
+                      (change)="imageUpload($event)"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-8 col-md-12">
+                  <!-- Image Preview -->
+                  <div class="form-group">
+                    <div
+                      class="image-preview"
+                      *ngIf="preview && preview !== null"
+                    >
+                      <img
+                        [src]="preview"
+                        [alt]="docReg.value.name"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="btn button primary-button"
+                mat-button
+                matStepperPrevious
+              >
+                Retour
+              </button>
+              <button
+                class="btn button primary-button ml-3"
+                mat-button
+                matStepperNext
+              >
+                Continuer
+              </button>
+            </mat-step>
+            <mat-step label="Informations de compte">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group">
+                    <label>Nom D'utilisateur</label>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        [ngModel]="docs.username"
+                        formControlName="username"
+                        class="form-control"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <button
+                class="btn button primary-button"
+                mat-button
+                matStepperPrevious
+              >
+                Retour
+              </button>
+              <button
+                class="btn button primary-button ml-3"
+                (click)="onSubmit()"
+                mat-button
+                matStepperNext
+              >
+                Valider
+              </button>
+            </mat-step>
+          </form>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+    <app-admin-notifications></app-admin-notifications>
+  </div>
+</div>
+<div class="sidebar-overlay" data-reff=""></div>

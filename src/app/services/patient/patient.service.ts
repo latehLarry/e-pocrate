@@ -75,4 +75,8 @@ export class PatientService {
   deletePatient(patientId: string) {
     return this.http.delete(BACKEND_URL + patientId);
   }
+  
+  updatePatientInfo(patientId: string) {
+    return this.http.delete(BACKEND_URL + patientId);
+  }
 }

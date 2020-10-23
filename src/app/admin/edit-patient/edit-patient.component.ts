@@ -88,24 +88,24 @@ export class EditPatientComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
-    this.patService.updatePatientInfo(
-      this.patId,
-      this.patReg.value.name,
-      this.patReg.value.surname,
-      this.patReg.value.email,
-      this.patReg.value.tel,
-      this.patReg.value.dob,
-      this.patReg.value.photo,
-      this.patReg.value.address,
-      this.patReg.value.postal_code,
-      this.patReg.value.country,
-      this.patReg.value.city,
-      this.patReg.value.username,
-      this.patReg.value.gender,
-      this.patReg.value.password,
-      this.patReg.value.certify,
-      this.patReg.value.creation_date,
-    )
+    // this.patService.updatePatientInfo(
+    //   this.patId,
+    //   this.patReg.value.name,
+    //   this.patReg.value.surname,
+    //   this.patReg.value.email,
+    //   this.patReg.value.tel,
+    //   this.patReg.value.dob,
+    //   this.patReg.value.photo,
+    //   this.patReg.value.address,
+    //   this.patReg.value.postal_code,
+    //   this.patReg.value.country,
+    //   this.patReg.value.city,
+    //   this.patReg.value.username,
+    //   this.patReg.value.gender,
+    //   this.patReg.value.password,
+    //   this.patReg.value.certify,
+    //   this.patReg.value.creation_date,
+    // )
   }
 
 }

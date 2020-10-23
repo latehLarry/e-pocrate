@@ -3,7 +3,7 @@ import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const BACKEND_URL = environment.apiUrl + "/admin/";
+const BACKEND_URL = environment.apiUrl + "/admin";
 
 @Injectable({
   providedIn: 'root'

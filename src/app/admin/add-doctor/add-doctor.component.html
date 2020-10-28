@@ -131,14 +131,14 @@
                 <div class="col-lg-6 col-md-12">
                   <div class="form-group">
                     <label for="">Pays</label>
-                    <input
-                      type="text"
-                      [ngModel]="docs.country"
-                      class="form-control"
-                      formControlName="country"
-                      aria-describedby="helpId"
-                      placeholder=""
-                    />
+                    <mat-select-country 
+
+                    (onCountrySelected)="onCountrySelected($event, 'country')"
+                    formControlName="country"
+                    appearance="outline"
+                    >
+                    </mat-select-country>
+                    
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -230,14 +230,13 @@
                 <div class="col-lg-6 col-md-12">
                   <div class="form-group">
                     <label for="">Pays</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      [ngModel]="docs.ctry_obt"
+                    <mat-select-country 
+                      appearance="outline"
+                      (onCountrySelected)="onCountrySelected($event, 'ctry_obt')"
                       formControlName="ctry_obt"
-                      aria-describedby="helpId"
-                      placeholder=""
-                    />
+                    >
+                    </mat-select-country>
+                   
                   </div>
                 </div>
               </div>

@@ -33,14 +33,23 @@ export class Doctor {
     postData.append('photo', doctor.photo);
     postData.append('address', doctor.address);
     postData.append('postal_code', doctor.postal_code);
-    postData.append('country', doctor.country);
+    if (typeof doctor.country === 'object') {
+      postData.append('country', doctor.country.name);
+    } else {
+      postData.append('country', doctor.country);
+    }
+    console.log('country', doctor.country);
     postData.append('city', doctor.city);
     postData.append('spec', doctor.spec);
     postData.append('ref_no', doctor.ref_no);
     postData.append('doc_order', doctor.doc_order);
     postData.append('faculty', doctor.faculty);
+    if (typeof doctor.ctry_obt === 'object') {
+      postData.append('ctry_obt', doctor.ctry_obt.name);
+    } else {
+      postData.append('ctry_obt', doctor.ctry_obt);
+    }
     postData.append('city_obt', doctor.city_obt);
-    postData.append('ctry_obt', doctor.ctry_obt);
     postData.append('username', doctor.username);
     postData.append('gender', doctor.gender);
     postData.append('password', doctor.password);

@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 import { AdminAuthInterceptor } from './auth/admin/admin-auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
@@ -117,6 +118,7 @@ import { AddDoctorComponent } from './admin/add-doctor/add-doctor.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
+    MatSelectCountryModule.forRoot('fr')
   ],
   providers: [
     {

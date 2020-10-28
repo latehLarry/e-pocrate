@@ -60,6 +60,14 @@ export class AddDoctorComponent {
     reader.readAsDataURL(photo);
   }
 
+  onCountrySelected(event, name) {
+    console.log('evet', event)
+    const value = event.name;
+    this.docs[name] = value;
+    this.docReg[name].setValue(value);
+    console.log("docReg", this.docReg);
+  }
+
   onSubmit() {
     this.isLoading = true;
     this.doctorService

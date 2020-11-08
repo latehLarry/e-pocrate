@@ -3090,6 +3090,17 @@ html.menu-opened body {
 	border-bottom: 1px solid #eaeaea;
 	padding: 10px;
 	position: relative;
+	
+}
+.color-list {
+
+	list-style: none !important;
+}
+.color-list::marker {
+	line-height:20px;
+	content: "\2022"; 
+	color: #09AEA9;
+	margin-left: -1em
 }
 .list-left {
 	height: 48px;

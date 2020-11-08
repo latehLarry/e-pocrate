@@ -4,12 +4,24 @@
         
         <div class="header-content">
             <div class="row">
-                <div class="col-md-6">
-                    <h4 class="text-dark">Avec e-pocrate vous avez á présent une plateforme qui vous permet d'offrir une consultation à domicile ou en cabinet à un proche.</h4>
-                    
-                   
+                <div class="col-md-6 pb-2">
+                    <ul class=" ">
+                        <li style="margin-top: 50px !important" class="p-2 color-list ml-4">
+                            <h6 class="">Télé consulter avec ou sans rendez-vous  </h6>
+                        </li>
+                        <li  class=" color-list p-2 ml-4">
+                              <h6 class="">Trouver un médecin près de chez vous en Afrique</h6>
+                        </li>
+                        <li class="p-2 color-list ml-4">
+                              <h6 class="">Offrir une consultation à domicile ou en cabinet à un proche </h6>
+                        </li>
+    
+                            <a class="btn nav-link btn-secondary" [routerLink]="['/choose-signin']">Prendre rendez-vous</a>
+    
+                        </ul>
                 </div>
-                <div class="col-md-6">
+                
+                <div class="col-md-6 ">
                     <img src="assets/img/gifs/gif_2.gif" alt="app"  class="img-fluid">
                 </div>
             </div>
@@ -17,7 +29,7 @@
     </div>
 </header>
 
-<section class="py-5 mb-5">
+<section class="py-3">
     <div class="container">
         <h2 style="text-align: center;">Nos Partenaires</h2>
         <div class="row">
@@ -66,149 +78,6 @@
     </div>
 </section>
 
-<section class="py-2">
-    <div class="container">
-        <h2>A PROPOS</h2>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqOneTitle">
-                        <a href="#faqOneCollapse" class="d-flex align-items-center" >
-                            <h6 class="mb-0">Nous connaitre</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqOneCollapse"  aria-labelledby="faqOneTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">E-pocrate.com est une plateforme de consultation médicale de la société FDM CONNECT.
-                                Elle a été créée afin d’améliorer l’accès aux soins à travers en Afrique.
-                                
-                                En collaboration avec les Conseils d’ordre nationaux des différents pays, nous avons constitué un réseau international qui permettra aux malades de se soigner, aux familles des malades de leur donner la possibilité d’accéder aux soins, d’avoir un véritable diagnostic et un traitement adapté.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqTwoTitle">
-                        <a href="#faqTwoCollapse" class="d-flex align-items-center">
-                            <h6 class="mb-0">Notre combat</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqTwoCollapse"  aria-labelledby="faqTwoTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">Cette plateforme permet à toute personne, quel que soit sa situation géographique, de trouver rapidement un médecin pour un proche en Afrique, avec différents critères tels que la géo localisation, la spécialité du médecin intervenant, les dates et horaires à travers un agenda en ligne.
-                                La plateforme permet également aux patients d’obtenir un diagnostic médicalisé en ligne 24H/24H afin de faire face aux urgences médicales et d’anticiper sur des cas de santé graves
-                                Les patients dans les pays en voie de développement peuvent solliciter la consultation en ligne des médecins en Occident avec qui nous avons également des partenariats.
-                                Les patients peuvent avec l’ordonnance obtenue par nos médecins commandé des médicaments en ligne grâce à nos pharmaciens partenaires.
-                                L’existence d’une plateforme constituée des médecins spécialisés accompagnée de la mise à disposition de véritables médicaments, sera notre combat à travers les pays d’Afrique.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-             
-            </div>
-         
-        </div>
-    </div>
-</section>
-<section class="py-2">
-    <div class="container">
-        <h2>FAQ</h2>
-        <p class="section-subtitle">FOIRE AUX QUESTIONS</p>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqOneTitle">
-                        <a href="#faqOneCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">Quelles sont les types de consultations médicales que la plateforme e-pocrate.com propose ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqOneCollapse" class="collapse" aria-labelledby="faqOneTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">E-POCRATE.COM propose trois types de consultations médicales :
-                                -	Consultation à domicile
-                                -	Consultation en ligne
-                                -	Consultation en cabinet
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqTwoTitle">
-                        <a href="#faqTwoCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">Pouvons-nous faire appel à un médecin à l’étranger ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqTwoCollapse" class="collapse" aria-labelledby="faqTwoTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">Pour consulter un médecin à l’étranger, (Afrique, Occident...) vous pouvez opter uniquement pour la consultation en ligne.
-                                Pour les consultations à domicile le médecin doit être localisé dans votre région, votre ville.
-                                Pour les consultations en cabinet, vous avez la liberté de choisir votre médecin, tout en sachant que vous devez vous déplacer par vos propres moyens pour aller à son cabinet.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqThreeTitle">
-                        <a href="#faqThreeCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">Quel sera le montant de la consultation ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqThreeCollapse" class="collapse" aria-labelledby="faqThreeTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">A travers son concept, E-POCRATE à déterminer des montants de consultations selon les tarifs établis dans chaque pays. Il se peut qu’ils soient légèrement supérieurs aux tarifs en vigueur :</p>
-                                <ul>
-                                    <li>Un montant de consultation en médecine générale</li>
-                                    <li>Un montant de consultation pour tous les médecins spécialistes</li>
-                                </ul>
-                                <p>
-                                    Lorsque vous choisissez un médecin le tarif de sa consultation s’affiche. Et selon l’option de consultation choisie, vous aurez un tarif différent.
-                                </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqFourTitle">
-                        <a href="#faqFourCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">Comment payer mes consultations ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqFourCollapse" class="collapse" aria-labelledby="faqFourTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">Je peux payer par CB, par transfert d’argent (Orange, MTN…)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqFiveTitle">
-                        <a href="#faqFiveCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">En cas d’urgence, puis-je consulter la nuit ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqFiveCollapse" class="collapse" aria-labelledby="faqFiveTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">Vous pouvez à tout moment faire appel à un médecin disponible. Cependant les tarifs des consultations nocturnes ne sont pas les mêmes qu’en journée.
-                                Nous vous conseillons en cas d’extrême urgence médicale, de vous rapprocher des urgences du centre hospitalier le plus proche.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 landing-faq-card">
-                    <div class="card-header bg-white" id="faqSixTitle">
-                        <a href="#faqSixCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                            <h6 class="mb-0">Comment entrer en contact avec E-POCRATE ?</h6> <i class="far fa-plus-square ml-auto"></i>
-                        </a>
-                    </div>
-                    <div id="faqSixCollapse" class="collapse" aria-labelledby="faqSixTitle">
-                        <div class="card-body">
-                            <p class="mb-0 text-gray">Dans l’espace personnel, chaque patient peut envoyer des messages via la plateforme pour toute question.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+
 <app-footer></app-footer>

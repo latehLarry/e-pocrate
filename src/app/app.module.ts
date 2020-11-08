@@ -24,6 +24,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { KnowusComponent } from './components/knowus/knowus.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DoctorSignupComponent } from './components/registration/doctor-signup/doctor-signup.component';
 import { PatientSignupComponent } from './components/registration/patient-signup/patient-signup.component';
@@ -60,11 +61,18 @@ import { ConsultationBookingComponent } from './patient/consultation-booking/con
 import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
 import { EditPatientComponent } from './admin/edit-patient/edit-patient.component';
 import { AddDoctorComponent } from './admin/add-doctor/add-doctor.component';
+import { MentionsComponent } from './components/mentions/mentions.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { FaqComponent } from './components/faq/faq.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    PricingComponent,
+    FaqComponent,
     AboutComponent,
+    KnowusComponent,
+    MentionsComponent,
     ContactComponent,
     DoctorSignupComponent,
     PatientSignupComponent,

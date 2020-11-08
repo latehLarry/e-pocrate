@@ -10,11 +10,17 @@
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['/home']">Accueil</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/about-us']">A propos</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">A propos</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"  [routerLink]="['/nos-tarifs']">Nos Tarifs</a>
+                  <a class="dropdown-item" [routerLink]="['/know-us']" href="#">Nous connaitre</a>
+                  <a class="dropdown-item" [routerLink]="['/about-us']" href="#">Notre combat</a>
+                  <a class="dropdown-item"  href="#" [routerLink]="['/faq']">F.A.Q</a>
+                </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/doctor-signin']">Je suis médecin</a>
+                <a class="nav-link" [routerLink]="['/doctor-signup']">Je suis médecin</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/find-doctor']">Trouver un médecin</a>
@@ -25,10 +31,10 @@
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="btn btn-secondary" [routerLink]="['/choose-signin']">Se Connecter</a>
+                <a class="btn nav-link btn-secondary" [routerLink]="['/choose-signin']">Connexion</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-secondary ml-1" [routerLink]="['/choose-signup']"  >Creer un Compte</a>
+              <a class="btn nav-link btn-secondary ml-1" [routerLink]="['/choose-signup']"  >Inscription</a>
             </li>
         </ul>
     </div>

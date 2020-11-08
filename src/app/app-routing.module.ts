@@ -24,6 +24,11 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
+import { AboutComponent } from './components/about/about.component';
+import { KnowusComponent } from './components/knowus/knowus.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { MentionsComponent } from './components/mentions/mentions.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -66,6 +71,11 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
   },
   { path: 'patient-home', component: PatientHomeComponent },
+  { path: 'about-us', component: AboutComponent },
+  { path: 'mentions-legales', component: MentionsComponent },
+  { path: 'nos-tarifs', component: PricingComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'know-us', component: KnowusComponent },
   { path: 'find-doctor', component: FindDoctorComponent },
   { path: 'doctor-info/:doctorId', component: ViewDoctorInfoComponent },
   { path: 'doctor-booking/:doctorId', component: ConsultationBookingComponent },

@@ -7948,10 +7948,10 @@ a.text-secondary:hover, a.text-secondary:focus {
   color: #c8ced9 !important; }
 
 .text-success {
-  color: #34ad80 !important; }
+  color: #09AEA9 !important; }
 
 a.text-success:hover, a.text-success:focus {
-  color: #227254 !important; }
+  color: #037171 !important; }
 
 .text-info {
   color: #0684fe !important; }
@@ -8260,8 +8260,8 @@ button:focus {
       background-color: #09AEA9; }
 
 .foi-footer {
-  padding-top: 150px;
-  padding-bottom: 110px;
+
+  padding-bottom: 50px;
   background-color: #ffffff;
   background-image: url(../images/Footer_bg.svg);
   background-repeat: no-repeat;
@@ -8331,7 +8331,7 @@ button:focus {
 
 .foi-navbar .navbar-nav .nav-link {
   font-size: 15px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oxygen', 'Open Sans', sans-serif;
   font-weight: bold;
   color: #000000; }
   .foi-navbar .navbar-nav .nav-link:hover, .foi-navbar .navbar-nav .nav-link:focus {
@@ -8339,6 +8339,14 @@ button:focus {
 
 .navbar-toggler {
   border: 0; }
+
+  h6, h2, h1, h3 {
+    font-family: 'Oxygen';
+  }
+  p {
+    font-family: 'Nunito';
+  }
+
 
 .privay-policy-nav {
   flex-direction: column;
@@ -8365,7 +8373,7 @@ html {
   padding-top: 24px; }
   .foi-header .header-content {
     padding-top: 105px;
-    padding-bottom: 40px; }
+    padding-bottom: 0px; }
     .foi-header .header-content h1 {
       font-size: 45px;
       line-height: 1.22; }

@@ -1,0 +1,10 @@
+/* Select last two only */
+table tr td:nth-last-child(-n + 2) {
+  background-color: #FCEADE;
+}
+/* Select the first two */
+table tr td:nth-child(-n + 3):not(:nth-child(-n +1)) {
+
+  background-color:#09AEA9;
+  color: white;
+}

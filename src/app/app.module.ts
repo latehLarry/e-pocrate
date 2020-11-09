@@ -64,12 +64,20 @@ import { AddDoctorComponent } from './admin/add-doctor/add-doctor.component';
 import { MentionsComponent } from './components/mentions/mentions.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { LoginComponent } from './components/login/login.component';
+import { DoctorSidebarComponent } from './doctor/doctor-sidebar/doctor-sidebar.component';
+import { DoctorNavbarComponent } from './doctor/doctor-navbar/doctor-navbar.component';
+import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PricingComponent,
     FaqComponent,
+    DoctorSidebarComponent,
+    DoctorNavbarComponent,
+    LoginComponent,
+    DoctorMessageComponent,
     AboutComponent,
     KnowusComponent,
     MentionsComponent,

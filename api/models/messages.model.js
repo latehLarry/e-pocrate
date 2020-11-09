@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 let messageSchema = Schema ({
     message: {type: String},
     userID: {type: String},
+    sentTo: {type: String},
+    sentBy: {type: String},
+    date: {type: Date},
     username: {type: String}
 });
 

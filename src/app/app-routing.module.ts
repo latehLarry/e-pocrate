@@ -27,8 +27,10 @@ import { PatientDetailsComponent } from './admin/patient-details/patient-details
 import { AboutComponent } from './components/about/about.component';
 import { KnowusComponent } from './components/knowus/knowus.component';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { LoginComponent } from './components/login/login.component';
 import { MentionsComponent } from './components/mentions/mentions.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'choose-signin', component: ChooseSigninComponent },
   { path: 'doctor-signin', component: DoctorSigninComponent },
   { path: 'patient-signin', component: PatientSigninComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'doctor-signup', component: DoctorSignupComponent },
   { path: 'upload-cv', component: AddCvComponent },
   { path: 'patient-signup', component: PatientSignupComponent },
@@ -58,6 +61,18 @@ const routes: Routes = [
     path: 'patients-list',
     component: PatientListComponent,
     canActivate: [AdminAuthGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'doctor-message',
+    component: DoctorMessageComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   { path: 'doctor-details/:doctorId', component: DoctorDetailsComponent },
   {

@@ -87,6 +87,8 @@ export class DoctorService {
     );
   }
 
+
+
   //for pagination
   /*
   getDoctors(doctorsPerPage: number, currentPage:number) {
@@ -139,6 +141,11 @@ export class DoctorService {
 
   getAllDoctors() {
     return this.http.get(BACKEND_URL + '/doctors-list');
+  }
+
+  loadDoctorConversations() {
+    
+    return this.http.get(BACKEND_URL + '/doctors/conversations');
   }
 
   getDoctorById(id: string) {

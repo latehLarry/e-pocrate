@@ -1,0 +1,112 @@
+.message-author {
+  color: #333;
+  float: left;
+  font-weight: normal;
+  width: 175px;
+  cursor: pointer;
+  /* display: block; */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.message-avatar {
+  cursor: pointer;
+}
+.conversation {
+  cursor: pointer;
+}
+.content {
+  background-color: #F9FCFDF4;
+  font-family: 'Nunito';
+}
+
+.discussion-user {
+  text-align: center;
+  font-family: Nunito;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #656565;
+  opacity: 1;
+}
+
+.message-box {
+  background: #09AEA9 0% 0% no-repeat padding-box;
+  border-radius: 19px;
+  opacity: 1;
+
+  padding: 10px;
+
+}
+.message-box-content {
+  text-align: right;
+  font-family: Nunito;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+.sent-message {
+  float: right !important;
+  color: #FFFFFF;
+  width: 46%;
+}
+
+.sent-message p {
+  background:  #09AEA9 none repeat scroll 0 0;
+  margin: 0; color:#fff;
+  border-radius: 19px;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+
+.received-message {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: -4px 4px 8px #0000000B;
+  opacity: 1;
+  border-radius: 19px;
+  width: 46%;
+  color: #09AEA9 !important ;
+}
+.received-message p {
+  margin: 0; 
+  color: #09AEA9 !important ;
+  border-radius: 19px;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+.received_withd_msg { width: 57%;}
+
+
+.outgoing_message, .incoming_message{ overflow:hidden; margin:26px 0 26px;}
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+.input_msg_write input {
+  background: #FFFFFF none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  border-radius: 0px !important;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+.messaging { padding: 0 0 50px 0;}
+.message-history {
+  height: 516px;
+  overflow-y: auto;
+}

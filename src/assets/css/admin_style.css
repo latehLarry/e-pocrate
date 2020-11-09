@@ -3092,6 +3092,12 @@ html.menu-opened body {
 	position: relative;
 	
 }
+.list-item.active {
+	border-bottom: 1px solid #eaeaea;
+	padding: 10px;
+	background-color: white;
+	
+}
 .color-list {
 
 	list-style: none !important;

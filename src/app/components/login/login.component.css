@@ -1,0 +1,85 @@
+.epocrate-main
+/*.epocrate-banner*/
+ {
+  /*background-image: url('../../../assets/images/banner_bg.png');*/
+  background-repeat: no-repeat;
+  background-size: 105% 95%;
+}
+
+.epocrate-main .epocrate-banner .epocrate-title h3 {
+  padding-top: 120px;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.25;
+}
+
+.button {
+  padding: 1rem 1.2rem;
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 50px;
+}
+
+.button.primary-button {
+  background: #09AEA9 0% 0% no-repeat padding-box;
+border-radius: 21px;
+opacity: 1;
+color: white;
+}
+
+.button.primary-button:hover{
+  background: whitesmoke;
+  background-clip: padding-box;
+  color: #09aea9;
+}
+
+.button.primary-button::after {
+  position: relative;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  background: #09aea9;
+  content: '';
+  z-index: -1;
+}
+
+/*.epocrate-about {
+}*/
+
+.epocrate-main .epocrate-about {
+  padding: 8rem 5rem;
+}
+
+.epocrate-main .epocrate-about .about-title h2 {
+  display: block;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
+  line-height: 2;
+  color: #09aea9;
+  letter-spacing: 5px;
+}
+
+.epocrate-main .epocrate-about .about-title .paragraph > p {
+  padding: 1rem 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 2.25;
+  letter-spacing: 1.25 !important;
+}
+
+.epocrate-form {
+  background: #fff;
+  padding: 50px;
+}
+
+span {
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgb(218, 100, 100);
+}
+
+
+
+

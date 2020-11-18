@@ -1,0 +1,47 @@
+<div class="main-wrapper">
+  <app-patient-navbar></app-patient-navbar>
+  <app-patient-header></app-patient-header>
+
+  <div class="page-wrapper">
+    <div class="content row">
+      <div class="col-sm-12  pr-1">
+        <div class="row border-right ">
+          <h6 class="col-sm-12" >Mes rendez-vous </h6>
+        </div>
+       
+        <hr>
+        <div class="row ml-1 border-right">
+          <ul class="list-box col-sm-10 row">
+            <li *ngFor="let rdv of displayedList" class="patient-list-item row m-2 col-sm-12"  >
+
+                <div  class="patient align-content-center row border-0 col-sm-10 list-item">
+                  <div class="col-sm-6">
+                    <span class=" avatar"><i class="fa fa-user" ></i></span>
+                    <p class="patient-name" >
+                      <span class="message-author align-middle">Dr. {{rdv.doctorId.name + ' ' + rdv.doctorId.surname}}</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-3">
+                    <p style="cursor: pointer;" class=" m-0  text-success align-middle "><a [routerLink]="[ '/doctor/patients/'+rdv.id]"><span>{{rdv.date.split('T')[0] + 'T' + rdv.time | date: 'medium'}}</span></a> </p>
+
+                  </div>
+                  <div class="col-sm-3">
+                    <p class=" align-middle">{{rdv.complain }}</p>
+
+                  </div>
+                </div>
+                <div class="col-sm-2 p-0 m-0">
+            
+                  <a type="button" class="btn download-button btn-default"> <i class="fa fa-eye" ></i> </a>
+                  
+                </div>
+
+            </li>
+            <li *ngIf="!displayedList.length" > aucun rendez vous pour l'instant </li>
+          </ul>
+          
+        </div>
+      </div>
+  </div>
+</div>
+<div class="sidebar-overlay" data-reff=""></div>

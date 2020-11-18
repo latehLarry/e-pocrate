@@ -1,0 +1,94 @@
+<div class="main-wrapper">
+    <app-doctor-navbar></app-doctor-navbar>
+    <app-doctor-sidebar></app-doctor-sidebar>
+  
+    <div class="page-wrapper">
+      <div class="content">
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">Profile patient</h4>
+            </div>
+        </div>
+        <div class="card-box profile-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-view">
+                        <div class="profile-img-wrap">
+                            <div class="profile-img">
+                                <a href="#"><img class="avatar" src="{{patient.photo}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="profile-basic">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="profile-info-left">
+                                        <h3 class="user-name m-t-0 mb-0">Dr. {{patient.name}} {{patient.surname}}</h3>
+                                        <div class="staff-id"> ID : {{patient.id}}</div>
+                                        <div class="staff-msg"><a [routerLink]="['/chat', patient.id]"  class="btn btn-primary">Envoyer un Méssage</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <ul class="personal-info">
+                                        <li>
+                                            <span class="title">Phone:</span>
+                                            <span class="text">{{patient.tel}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Email:</span>
+                                            <span class="text"><a href="mailto:{{patient.email}}">{{patient.email}}</a></span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Date de Naissance:</span>
+                                            <span class="text">{{patient.dob}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Addresse:</span>
+                                            <span class="text">{{patient.address}}, {{patient.city}} - {{patient.country}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Sexe:</span>
+                                            <span class="text">{{patient.gender}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        <div class="profile-tabs">
+
+            <div class="tab-content">
+                <div class="tab-pane show active" id="about-cont">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-box mb-0">
+                    <h3 class="card-title">Statut</h3>
+                    <div class="experience-box">
+                        <ul class="experience-list">
+                            <li>
+                                <div class="experience-user">
+                                    <div class="before-circle"></div>
+                                </div>
+                                <div class="experience-content">
+                                    <div class="timeline-content">
+                                        <a href="#/" class="name">Date de création</a>
+                                        <span class="time">{{patient.creation_date}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <app-admin-notifications></app-admin-notifications>
+    </div>
+  </div>
+  <div class="sidebar-overlay" data-reff=""></div>
+

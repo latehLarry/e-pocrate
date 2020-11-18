@@ -1,0 +1,46 @@
+<div class="main-wrapper">
+  <app-patient-navbar></app-patient-navbar>
+  <app-patient-header></app-patient-header>
+
+  <div class="page-wrapper">
+    <div class="content row">
+      <div class="col-sm-12 border-right pr-1">
+        <div class="row">
+          <h4 class="col-sm-12" >Téléconsultations </h4>
+        </div>
+        
+      </div>
+      <div class="row ml-2 ">
+          <div class="col-sm-12">
+              <h6 class="text-success" >Mes Téléconsultations</h6>
+          </div>
+          <ul class="list-box row">
+              <li *ngFor="let consultation of bookings" >
+                  <div class="card consultation-card ml-3 col-sm-8">
+                      <div class="card-header consultation-header">
+
+                            <i class="fa fa-calendar" ></i> {{consultation.date | date: 'medium'}}
+
+                      </div>
+                      <div class="card-body">
+                          <div class="list-item">
+                              <div class="list-left">
+                                <span class="avatar">R</span>
+                              </div>
+                              <div class="list-body">
+                                <span class="message-author"> {{consultation.doctorId.name + ' ' + consultation.doctorId.surname}} </span>
+                                <span class="message-time"></span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Motif: {{consultation.complain}} </span>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+
+              </li>
+              <li *ngIf="!bookings.length" >Aucune téléconsultation</li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="sidebar-overlay" data-reff=""></div>

@@ -1,0 +1,25 @@
+.consultation-header {
+  background: #09AEA9 0% 0% no-repeat padding-box;
+  padding-bottom: 0px;
+  border-radius: 13px 13px 0px 0px;
+  color: white;
+}
+
+.consultation-past-header {
+  background: gray 0% 0% no-repeat padding-box;
+  padding-bottom: 0px;
+  border-radius: 13px 13px 0px 0px;
+  color: white;
+}
+.content {
+  background-color: #F9FCFDF4;
+  font-family: 'Nunito';
+}
+.consultation-card {
+  min-width: 400px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 2px 12px 7px #00000005;
+  border-radius: 33px;
+  padding-left: 0px;
+  padding-right: 0px;
+}

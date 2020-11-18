@@ -1,0 +1,79 @@
+<div class="main-wrapper">
+    <app-doctor-navbar></app-doctor-navbar>
+    <app-doctor-sidebar></app-doctor-sidebar>
+  
+    <div class="page-wrapper">
+      <div class="content row">
+        <div class="col-sm-12 col-md-3 border-right pr-1">
+          <div class="row">
+            <h4 class="col-sm-12" >Téléconsultations </h4>
+          </div>
+          
+        </div>
+        <div class="row ml-2 ">
+            <div class="col-sm-12">
+                <h6 class="text-success" >Téléconsultations à venir</h6>
+            </div>
+            <ul class="list-box row">
+                <li *ngFor="let consultation of consultations" >
+                    <div class="card consultation-card ml-3 col-sm-8">
+                        <div class="card-header consultation-header">
+
+                              <i class="fa fa-calendar" ></i> {{consultation.date | date: 'medium'}}
+
+                        </div>
+                        <div class="card-body">
+                            <div class="list-item">
+                                <div class="list-left">
+                                  <span class="avatar">R</span>
+                                </div>
+                                <div class="list-body">
+                                  <span class="message-author"> {{consultation.patient.name + ' ' + consultation.patient.surname}} </span>
+                                  <span class="message-time"></span>
+                                  <div class="clearfix"></div>
+                                  <span class="message-content">Notes: Aucune note pour cette consultation. </span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+        <div class="row ml-1 ">
+            <div class="col-sm-12">
+<h6 class="text-success" >Téléconsultations passées</h6>
+            </div>
+            
+            <ul class="list-box row">
+                <li *ngFor="let consultation of pastConsultations" >
+                    <div class="card consultation-card ml-3 col-sm-8">
+                        <div class="card-header consultation-past-header">
+
+                              <i class="fa fa-calendar" ></i> {{consultation.date | date: 'medium'}}
+
+                        </div>
+                        <div class="card-body">
+                            <div class="list-item">
+                                <div class="list-left">
+                                  <span class="avatar">R</span>
+                                </div>
+                                <div class="list-body">
+                                  <span class="message-author"> {{consultation.patient.name + ' ' + consultation.patient.surname}} </span>
+                                  <span class="message-time"></span>
+                                  <div class="clearfix"></div>
+                                  <span class="message-content">Notes: Aucune note pour cette consultation. </span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+       
+    </div>
+  </div>
+  <div class="sidebar-overlay" data-reff=""></div>
+  

@@ -31,6 +31,13 @@ import { LoginComponent } from './components/login/login.component';
 import { MentionsComponent } from './components/mentions/mentions.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.component';
+import { DoctorPatientsListComponent } from './doctor/doctor-patients-list/doctor-patients-list.component';
+import { DoctorPatientDetailsComponent } from './doctor/doctor-patient-details/doctor-patient-details.component';
+import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor-consultation.component';
+import { PatientProfilComponent } from './patient/patient-profil/patient-profil.component';
+import { PatientMessageComponent } from './patient/patient-message/patient-message.component';
+import { PatientRdvComponent } from './patient/patient-rdv/patient-rdv.component';
+import { PatientConsultationComponent } from './patient/patient-consultation/patient-consultation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -71,6 +78,18 @@ const routes: Routes = [
     component: DoctorMessageComponent,
   },
   {
+    path: 'doctor/consultations',
+    component: DoctorConsultationComponent,
+  },
+  {
+    path: 'doctor/patients',
+    component: DoctorPatientsListComponent,
+  },
+  {
+    path: 'doctor/patients/:patientId',
+    component: DoctorPatientDetailsComponent,
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -85,16 +104,19 @@ const routes: Routes = [
     component: AddDoctorComponent,
     canActivate: [AdminAuthGuard],
   },
-  { path: 'patient-home', component: PatientHomeComponent },
+  { path: 'patient/home', component: PatientProfilComponent },
+  { path: 'patient/messages', component: PatientMessageComponent },
+  { path: 'patient/rdv', component: PatientRdvComponent },
+  { path: 'patient/consultations', component: PatientConsultationComponent },
   { path: 'about-us', component: AboutComponent },
   { path: 'mentions-legales', component: MentionsComponent },
   { path: 'nos-tarifs', component: PricingComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'know-us', component: KnowusComponent },
-  { path: 'find-doctor', component: FindDoctorComponent },
-  { path: 'doctor-info/:doctorId', component: ViewDoctorInfoComponent },
-  { path: 'doctor-booking/:doctorId', component: ConsultationBookingComponent },
-  { path: 'patient-details/:patId', component: PatientDetailsComponent },
+  { path: 'patient/find-doctor', component: FindDoctorComponent },
+  { path: 'patient/doctor-info/:doctorId', component: ViewDoctorInfoComponent },
+  { path: 'patient/doctor-booking/:doctorId', component: ConsultationBookingComponent },
+  { path: 'patient/:patId', component: PatientDetailsComponent },
 ];
 
 @NgModule({

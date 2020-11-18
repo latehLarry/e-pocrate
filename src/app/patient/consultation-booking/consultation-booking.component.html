@@ -5,69 +5,221 @@
     <div class="page-wrapper">
       <div class="content">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <h4 class="page-title">Reserver une Consultation</h4>
+            <div class="col-lg-8">
+               <h4 *ngIf="booking.type == 'rdv'" class="text-success page-title"> <i class="fa fa-calendar mr-2" ></i>Mon rendez vous</h4>
+               <h4 *ngIf="booking.type == 'teleconsultation'" class="text-success page-title"> <i class="fa fa-laptop-medical mr-2" ></i>Reserver une Consultation</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Médecin</label>
-                                <input class="form-control" type="text" value="Dr. {{docs.name}} {{docs.surname}}" readonly="">
+                <mat-horizontal-stepper  class="col-sm-12" >
+                    <mat-step label="Patient">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <div class="cal-icon">
+                                        <input [(ngModel)]="booking.date" type="date" class="form-control ">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                           <div class="form-group">
-                             <label for="">Patient</label>
-                             <input type="text"
-                               class="form-control" name="" id="" aria-describedby="helpId" value="patient name" readonly="">
-                           </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Date</label>
-                                <div class="cal-icon">
-                                    <input type="text" class="form-control datetimepicker">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Heure</label>
+                                    <div class="time-icon">
+                                        <input ngModel [(ngModel)]="booking.time" type="time" class="form-control" >
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Heure</label>
-                                <div class="time-icon">
-                                    <input type="text" class="form-control" id="datetimepicker3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                  <div class="radio">
+                                      <label class="m-2"  >
+                                          <input checked="checked" type="radio" (click)="booking.isForSibling = false; true" name="isForSibling"  value="false" >
+                                          Pour moi
+                                      </label>
+                                      <label class="m-2" >
+                                          <input (click)="booking.isForSibling = true" type="radio" name="isForSibling"  value="true" >
+                                          Pour un proche
+                                      </label>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </div>
+                        
+                        <div *ngIf="booking.isForSibling" >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prénom(s)</label>
+                                        <input [(ngModel)]="sibling.name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input [(ngModel)]="sibling.surname" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input [(ngModel)]="sibling.email" class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Numero de téléphone(Avec code pays)</label>
+                                        <input [(ngModel)]="sibling.phone" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        <input [(ngModel)]="sibling.address" class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Pays</label>
+                                        <input [(ngModel)]="sibling.country" class="form-control" type="text">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" type="email">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="">
+                                    <p class="mb-0" >Rendez-vous le {{booking.date +'T' + booking.time | date: 'medium'}}</p>
+                                    <p class="mb-0" >{{doctor.spec}}</p>
+                                    <p class="mb-0" >Dr. {{doctor.name + ' ' + doctor.surname}}</p>
+                                    <p class="mb-0" >{{doctor.address}}</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row text-center" >
+                            <button [disabled]="!checkBooking() || !checkSibling()" class="btn mr-2  btn-primary"  matStepperNext>Continuer</button>
+                        </div>
+                        
+                    </mat-step>
+                    <mat-step label="Choix du motif" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Saisir un motif</label>
+                                    <input cols="30" type="text" placeholder="motif...." [(ngModel)]="booking.complain"  class="form-control" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="">
+                                    <p class="mb-0" >Rendez-vous le {{booking.date +'T' + booking.time | date: 'medium'}}</p>
+                                    <p class="mb-0" >{{doctor.spec}}</p>
+                                    <p class="mb-0" >Dr. {{doctor.name + ' ' + doctor.surname}}</p>
+                                    <p class="mb-0" >{{doctor.address}}</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row mr-2 text-center" >
+                            <button class="btn mr-2  btn-primary" [disabled]="!checkComplain()" matStepperNext>Continuer</button>
+                        </div>
+                    </mat-step>
+                    <mat-step label="Confirmation" >
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="">
+                                    <p class="mb-0" >Rendez-vous le {{booking.date +'T' + booking.time | date: 'medium'}}</p>
+                                    <p class="mb-0" >{{doctor.spec}}</p>
+                                    <p class="mb-0" >Dr. {{doctor.name + ' ' + doctor.surname}}</p>
+                                    <p class="mb-0" >{{doctor.address}}</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="">
+                                    <p class="mb-0 text-success" >Motif: {{booking.complain}}</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row mr-2 text-center" >
+                            <button class="btn mr-2  btn-primary"  matStepperNext>Confirmer</button>
+                        </div>
+                        
+                    </mat-step>
+                    <mat-step   label="Paiement" >
+                        <div class="row">
+                            <div class=" col-sm-6">
+                                <div class="col-md-10">
+                                    <div class="">
+                                        <p class="mb-0" >Rendez-vous le {{booking.date +'T' + booking.time | date: 'medium'}}</p>
+                                        <p class="mb-0" >{{doctor.spec}}</p>
+                                        <p class="mb-0" >Dr. {{doctor.name + ' ' + doctor.surname}}</p>
+                                        <p class="mb-0" >{{doctor.address}}</p>
+                                        <p class="mb-0 text-success" >Motif: {{booking.complain}}</p>
+                                    </div>
+                                    <div class="">
+                                        <p class="" >Prix 25 Euro TTC</p>
+    
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="example2 example col-sm-6">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label for="card-number" >Numéro de carte</label>
+                                        <div id="card-number" class="form-group empty"></div>
+                                        <div class="baseline"></div>
+                                    </div>
+                                </div>
+                                  <div class="row">
+                                    <div class="col-md-6 mr-2 form-group">
+                                        <label for="card-expiry" >Date d'expiration</label>
+                                        <div id="card-expiry" class="form-group empty"></div>
+                                        <div class="baseline"></div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="card-cvc" >CVC</label>
+                                        <div id="card-cvc" class="form-group empty"></div>
+                                        <div class="baseline"></div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div *ngIf="cardErrors.cardNumber" class="alert alert-danger">
+                                      <strong>Carte: </strong> {{cardErrors.cardNumber}}
+                                  </div>
+                                  <div *ngIf="cardErrors.cardExpiry" class="alert alert-danger">
+                                      <strong>Date d'expiration: </strong> {{cardErrors.cardExpiry}}
+                                  </div>
+                                  <div *ngIf="cardErrors.cardCvc" class="alert alert-danger">
+                                      <strong>CVC: </strong> {{cardErrors.cardCvc}}
+                                  </div>
+                                  
+                                  <div class="row mr-2 text-center" >
+                                    <button class="btn mr-2  btn-primary" [disabled]="!checkForm()" (click)="confirmBooking()"  >Payer</button>
+                                  </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Numero de téléphone(Avec code pays)</label>
-                                <input class="form-control" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Probleme</label>
-                        <textarea cols="30" rows="4" class="form-control"></textarea>
-                    </div>
-                    <div class="m-t-20 text-center">
-                        <button class="btn btn-primary submit-btn">Valider</button>
-                    </div>
-                </form>
-            </div>
+                        
+                        
+                        
+                    </mat-step>
+                </mat-horizontal-stepper>
+                
+                
+                    
         </div>
         </div>
       </div>

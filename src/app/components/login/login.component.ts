@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/app/services/admin/admin.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +10,14 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 })
 export class LoginComponent implements OnInit {
   adminLogin: FormGroup;
-  isLoading = false!;
+  isLoading = false;
+  error = '';
 
-  constructor(private adminService: AdminService, private router: Router) { 
+  constructor(private userService: UserService, private router: Router) {
     this.adminLogin = new FormGroup ({
-      email: new FormControl(null, {validators: [Validators.required]}),
+      username: new FormControl(null, {validators: [Validators.required]}),
       password: new FormControl(null, {validators: [Validators.required]})
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -27,10 +28,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.error = '';
     this.isLoading = true;
-    this.adminService.adminSignin(this.adminLogin.value).subscribe(response => {
-      this.adminService.setToken(response["token"]);
-      this.router.navigate(["/admin-home"]);
+    this.userService.login(this.adminLogin.value).subscribe(response => {
+      this.userService.setToken(response["token"]);
+      this.userService.setUser(response["user"]);
+      if (response["user"].role === 'patient') {
+        this.router.navigate(["/patient/home"]);
+      } else {
+        this.router.navigate(["/doctor/consultations"]);
+      }
+    }, (error) => {
+      this.error = 'Impossible de trouver un compte avec cette adresse.';
+      this.isLoading = false;
     });
   }
 

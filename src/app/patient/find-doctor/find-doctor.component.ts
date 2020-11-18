@@ -15,6 +15,10 @@ import { PageEvent, MatPaginator } from '@angular/material/paginator';
 export class FindDoctorComponent implements OnInit {
   docs: Doctor;
   isLoading = false;
+  searchText  = '';
+  doctorList = [];
+  doctorDisplayList = [];
+
   private doctorId: string;
 
   constructor(private doctorService: DoctorService, private router: Router, private activeRoute: ActivatedRoute) { }
@@ -30,15 +34,23 @@ export class FindDoctorComponent implements OnInit {
     this.isLoading = true;
     this.doctorService.getAllDoctors().subscribe(
       (doctorsList: {doctors: Doctor[]}) => {
-      this.doctors = doctorsList.doctors;
-      this.listData = new MatTableDataSource(this.doctors);
-      this.listData.sort = this.sort;
-      this.listData.paginator = this.paginator;
+      this.doctorList = doctorsList.doctors;
+      this.doctorDisplayList = this.doctorList;
     });
   }
 
   applyFilter() {
     this.listData.filter = this.searchkey.trim().toLowerCase();
+  }
+
+  searchDoctor() {
+    this.doctorDisplayList = this.doctorList.filter(p => {
+      if (!this.searchText) {
+        return true;
+      }
+      const fullname = p.name + ' ' + p.surname + ' ' + p.spec;
+      return fullname.toLowerCase().includes(this.searchText.toLowerCase());
+    });
   }
 
  

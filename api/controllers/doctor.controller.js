@@ -3,6 +3,7 @@ const Cv = require("../models/cv.model");
 const nodemailer = require("nodemailer");
 const { error } = require("protractor");
 const { mailService } = require("../services/mailService");
+const { userService } = require("../services/userService");
 //SMPTP credentialls
 const transporter = nodemailer.createTransport({
   host: "mail.e-pocrate.com", //smtp url
@@ -14,8 +15,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.docRegister = (req, res, next) => {
+exports.docRegister = async (req, res, next) => {
   const url = req.protocol + "://" + req.get("host");
+  let {username} = req.body;
+  let userAlreadyExist = userService.getUserByUsername(username);
+  if (userAlreadyExist) {
+    return res
+      .status(406)
+      .send(["Le username est déja associée a un compte"]);
+  }
   const doctor = new Doctor({
     //_id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -34,14 +42,13 @@ exports.docRegister = (req, res, next) => {
     faculty: req.body.faculty,
     city_obt: req.body.city_obt,
     ctry_obt: req.body.ctry_obt,
-    username: req.body.username,
     gender: req.body.gender,
-    password: req.body.password,
     creation_date: Date.now(),
     active: false,
   });
-  doctor.save((err, doc) => {
+  doctor.save(async (err, doc) => {
     if (!err) {
+      await userService.createUserDoctor(req.body.email, req.body.password, doc._id)
       res.send(doc);
       mailService.sendDoctorCreation({email: doc.email, password: req.body.password})
     } else {

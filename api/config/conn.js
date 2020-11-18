@@ -13,3 +13,9 @@ error => {
 );
 
 require("../models/admin.model");
+require("../models/user.model");
+require("../models/doctor.model");
+require("../models/patient.model");
+require("../models/cv.model");
+require("../models/messages.model");
+require("../models/sibling.model");

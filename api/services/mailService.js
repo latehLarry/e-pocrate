@@ -3,7 +3,7 @@ var sendgrid =  require("@sendgrid/mail");
 sendgrid.setApiKey(process.env.sendgridKey)
 
 exports.mailService = {
-  async sendDoctorCreation({email, password}) {
+  async sendDoctorCreation({email}) {
     const msg = {
       to: email,
       from: {
@@ -14,11 +14,10 @@ exports.mailService = {
       text: `BIENVENUE SUR E-POCRATE
       Votre compte a été créé. Nous traitons votre demande et nous vous revenons après confirmation de votre compte
       Vos accès à la plateforme:
-      username: ${email}
-      password:  ${password}`,
+      username: ${email}`,
       html: `<h1>BIENVENUE SUR E-POCRATE</h1> <br>
       Votre compte a été créé. Nous traitons votre demande et nous vous revenons après confirmation de votre compte<br>
-      Vos accès à la plateforme: <br><b>username</b>: ${email}<br><b>password</b>:  ${password}`,
+      Vos accès à la plateforme: <br><b>username</b>: ${email}<br>`,
     }
     
     return sendgrid

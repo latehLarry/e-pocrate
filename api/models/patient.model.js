@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 let patSchema = new Schema({
   name: { type: String, required: "SVP entrer votre nom! <br>" },
@@ -14,12 +15,11 @@ let patSchema = new Schema({
   postal_code: { type: String, required: "SVP entrer votre code postal!" },
   country: { type: String, required: "SVP entrer votre pays de résidence!" },
   city: { type: String, required: "SVP entrer votre ville de résidence!" },
-  username: { type: String, required: "SVP entrer votre nom d\'utilisateur!" },
   gender: { type: String, required: "SVP precisez votre sexe!" },
-  password: { type: String, required: "SVP entrer un mot de passe!", minlength: [8, "Le mot de passe doit contenir au moins 8 caractères"] },
   certify: { type: String },
   creation_date: { type: Date, required: true },
-  salt_secret: String
+  salt_secret: String,
+  userId: {type: ObjectId, ref: 'User'}
 });
 
 

@@ -31,8 +31,8 @@
                       <div class="col-lg-8 col-md-12">
                         <div class="form-group">
                           <label for="">Email(*)</label>
-                          <input type="email" class="form-control" formControlName="email"  aria-describedby="helpId" placeholder="">
-                          <span *ngIf="isValid('email')">Ce champ ne peut pas etre vide!</span>
+                          <input type="email" class="form-control" formControlName="username"  aria-describedby="helpId" placeholder="">
+                          <span *ngIf="isValid('username')">Ce champ ne peut pas etre vide!</span>
                         </div>
                       </div>
                       <div class="col-lg-8 col-md-12">
@@ -43,10 +43,15 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <div *ngIf="error" class="alert alert-danger">
+                      <strong>Erreur:</strong> {{error}}
+                    </div>
+                    
                     <div >
                       <button class="btn active button btn-lg primary-button" (click)="onSubmit()" >SE CONNECTER</button>
                       <p>Mot de passe oublié ?</p>
-                      <p class="text-success" >Vous n'avez pas encore de compte ?</p>
+                      <p class="text-success"  ><a [routerLink]="['/choose-signup']">Vous n'avez pas encore de compte ?</a> </p>
                     </div>
                 </form>
             </div>

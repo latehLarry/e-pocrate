@@ -78,7 +78,7 @@ export class PatientSignupComponent implements OnInit {
         this.patReg.value.password,
         this.patReg.value.certify
     ).subscribe(response => {
-      this.router.navigate(["/patient-signup-success"]);
+      this.router.navigate(["/login"]);
     });
 
   }

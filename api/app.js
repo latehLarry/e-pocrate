@@ -1,6 +1,7 @@
 require("./config/config");
 require("./config/conn");
 require("./config/passportConfig/adminConfig");
+require("./config/passportConfig/userConfig");
 
 const express = require("express");
 const cors = require("cors");
@@ -8,6 +9,7 @@ const bodyParser = require("body-parser");
 const adminRoutes = require("./routes/admin.routes");
 const docRoute = require("./routes/doctor.routes");
 const patRoute = require("./routes/patient.routes");
+const userRoute = require("./routes/user.routes");
 
 const server = express();
 
@@ -29,6 +31,7 @@ server.use(cors({origin: "*"}));
 server.use("/api/admin", adminRoutes);
 server.use("/api/doctors", docRoute);
 server.use("/api/patients", patRoute);
+server.use("/api/users", userRoute);
 
 
 server.get("/", function (req, res) {

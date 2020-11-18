@@ -52,6 +52,10 @@ import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.co
 import { EditDoctorComponent } from './admin/edit-doctor/edit-doctor.component';
 import { DoctorHomeComponent } from './doctor/doctor-home/doctor-home.component';
 import { PatientHomeComponent } from './patient/patient-home/patient-home.component';
+import { PatientProfilComponent } from './patient/patient-profil/patient-profil.component';
+import { PatientRdvComponent } from './patient/patient-rdv/patient-rdv.component';
+import { PatientConsultationComponent } from './patient/patient-consultation/patient-consultation.component';
+import { PatientMessageComponent } from './patient/patient-message/patient-message.component';
 import { FindDoctorComponent } from './patient/find-doctor/find-doctor.component';
 import { PatientHeaderComponent } from './patient/patient-header/patient-header.component';
 import { PatientNavbarComponent } from './patient/patient-navbar/patient-navbar.component';
@@ -68,6 +72,9 @@ import { LoginComponent } from './components/login/login.component';
 import { DoctorSidebarComponent } from './doctor/doctor-sidebar/doctor-sidebar.component';
 import { DoctorNavbarComponent } from './doctor/doctor-navbar/doctor-navbar.component';
 import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.component';
+import { DoctorPatientsListComponent } from './doctor/doctor-patients-list/doctor-patients-list.component';
+import { DoctorPatientDetailsComponent } from './doctor/doctor-patient-details/doctor-patient-details.component';
+import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor-consultation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +83,9 @@ import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.c
     FaqComponent,
     DoctorSidebarComponent,
     DoctorNavbarComponent,
+    DoctorConsultationComponent,
+    DoctorPatientsListComponent,
+    DoctorPatientDetailsComponent,
     LoginComponent,
     DoctorMessageComponent,
     AboutComponent,
@@ -115,6 +125,10 @@ import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.c
     ConsultationBookingComponent,
     PatientDetailsComponent,
     EditPatientComponent,
+    PatientProfilComponent,
+    PatientMessageComponent,
+    PatientRdvComponent,
+    PatientConsultationComponent
   ],
   imports: [
     BrowserModule,

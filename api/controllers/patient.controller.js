@@ -1,6 +1,8 @@
 const Patient = require("../models/patient.model");
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
+const userService = require("../services/userService");
+const { mailService } = require("../services/mailService");
 
 //SMPTP credentialls
 const transporter = nodemailer.createTransport({
@@ -15,14 +17,6 @@ const transporter = nodemailer.createTransport({
 
 exports.patRegister = (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
-  const mailOption = {
-    from :'no-reply@e-pocrate.com', // sender this is your email here
-    to : `${req.body.email}`, // receiver email
-    subject: "BIENVENUE SUR E-POCRATE",
-    html: `<h1>BIENVENUE SUR E-POCRATE</h1> <br>
-    Merci d\'avoir créer votre compte. Nous avons bien reçu votre demande d'inscription.
-    vous pouvez á présent vous connecter a votre compte grace a ce lien <a href="www.e-pocrate.com/patient-login">Se Connecter</a>!!!`
-}
   const patient = new Patient({
     name: req.body.name,
     surname: req.body.surname,
@@ -34,21 +28,15 @@ exports.patRegister = (req, res, next) => {
     postal_code: req.body.postal_code,
     country: req.body.country,
     city: req.body.city,
-    username: req.body.username,
     gender: req.body.gender,
-    password: req.body.password,
     creation_date: Date.now(),
   });
-  patient.save((err, doc) => {
+  patient.save(async (err, doc) => {
     if (!err){ 
+      console.log({userService})
+      await userService.createUserPatient(req.body.email, req.body.password, doc._id);
+      await mailService.sendDoctorCreation({email: doc.email});
       res.send(doc);
-      transporter.sendMail(mailOption, (error, info) => {
-        if(error) {
-          console.log(error)
-        } else {
-          console.log("Email sent successfully:" + info);
-        }
-      });
     }
     else {
       if (err.code == 11000)
@@ -57,6 +45,37 @@ exports.patRegister = (req, res, next) => {
       else return next(err);
     }
   });
+}
+
+exports.addBooking = async (req, res) => {
+  let {date, time, isForSibling, sibling, complain, doctorId, type} = req.body;
+  try {
+    let patient = await Patient.findOne({userId: req._id});
+    let booking = await userService.addBooking({date, time, isForSibling, sibling, complain, doctorId, type}, patient._id)
+    res.send({
+      booking
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(406).send({
+      message: 'erreur lors de la réservation'
+    })
+  }
+}
+
+exports.getBookings = async (req, res) => {
+  try {
+    let patient = await Patient.findOne({userId: req._id});
+    let bookings = await userService.getBookings(patient._id)
+    res.send({
+      bookings
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(406).send({
+      message: 'erreur lors de la réservation'
+    })
+  }
 }
 
 //fetch all Patients
@@ -69,12 +88,16 @@ exports.getAllPatients = (req, res, next) => {
   });
 }
 
-exports.getPatientById = (req, res, next) => {
-  Patient.findById(req.params.id, (error, data) => {
-    if(error) {
-      return next(error)
-    } else {
-      res.json(data)
-    }
-  })
+exports.getPatientById = async (req, res, next) => {
+  try {
+    let patient = await Patient.findOne({userId: req.params.id});
+    console.log("id", req.params.id)
+    console.log(patient);
+    res.send(patient);
+  } catch (error) {
+    res.status(406).send({
+      message: "unknown"
+    })
+  }
+  
 }

@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
+const ObjectId  = Schema.ObjectId;
 
 let docSchema = new Schema ({
   name: { type: String, required: "SVP entrer votre nom!" },
@@ -21,13 +22,12 @@ let docSchema = new Schema ({
   faculty: { type: String, required: "SVP remplissez votre faculté!" },
   city_obt: { type: String, required: "SVP remplissez la ville de la faculté!" },
   ctry_obt: { type: String, required: "SVP remplissez le pays d\'obtention du diplome!" },
-  username: { type: String, required: "SVP entrer votre nom d\'utilisateur!" },
   gender: { type: String, required: "SVP precisez votre sexe!" },
-  password: { type: String, required: "SVP entrer un mot de passe!", minlength: [8, "Le mot de passe doit contenir au moins 8 caractères"] },
   certify: { type: String },
   creation_date: { type: Date, required: true },
   active: { type: Boolean, required: true },
-  salt_secret: String
+  salt_secret: String,
+  userId: {type: ObjectId, ref: 'User'}
 });
 
 docSchema.plugin(uniqueValidator);

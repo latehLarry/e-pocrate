@@ -69,13 +69,21 @@ export class PatientService {
     password: string;
     certify: string;
     creation_date: string;
-    }>(BACKEND_URL + "/"+ id);
+    }>(BACKEND_URL + id);
   }
 
   deletePatient(patientId: string) {
     return this.http.delete(BACKEND_URL + patientId);
   }
-  
+  loadPatientConversations() {
+    return this.http.get(BACKEND_URL + '/conversations');
+  }
+  getBookings() {
+    return this.http.get(BACKEND_URL + '/bookings');
+  }
+  addBooking(booking) {
+    return this.http.post(BACKEND_URL + '/bookings', booking);
+  }
   updatePatientInfo(patientId: string) {
     return this.http.delete(BACKEND_URL + patientId);
   }

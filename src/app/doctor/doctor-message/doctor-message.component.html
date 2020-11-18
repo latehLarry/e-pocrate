@@ -4,15 +4,15 @@
 
   <div class="page-wrapper">
     <div class="content row">
-      <div class="col-sm-12 col-md-3 pr-1">
-        <div class="row border-right text-success">
+      <div class="col-sm-12 col-md-3 min-vh-100 border-right pr-1">
+        <div class="row  text-success">
           <h6 class="col-sm-12" >Messages <i class="fa float-right fa-edit" ></i></h6>
         </div>
-        <div class="row ml-1 border-right">
+        <div class="row ml-1 ">
           <ul class="list-box row">
             <li *ngFor="let conversation of conversations" >
 
-                <div (click)="displayConversation(conversation)" [class.active]="conversation.contact.id === this.selectedConversation.contact.id" class="conversation list-item">
+                <div (click)="displayConversation(conversation)" [class.active]="conversation.contact.id === this.selectedConversation.contact.id" class="conversation pr-2 list-item">
                   <div class="message-avatar list-left">
                     <span class=" avatar">Mr</span>
                   </div>

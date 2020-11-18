@@ -147,6 +147,9 @@ export class DoctorService {
     
     return this.http.get(BACKEND_URL + '/doctors/conversations');
   }
+  loadDoctorPatients() {
+    return this.http.get(BACKEND_URL + '/doctors/patients');
+  }
 
   getDoctorById(id: string) {
     return this.http.get<{

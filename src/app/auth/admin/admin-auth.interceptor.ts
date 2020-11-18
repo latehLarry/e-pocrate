@@ -22,7 +22,7 @@ export class AdminAuthInterceptor implements HttpInterceptor {
           event => { },
           err => {
             if (err.error.auth == false) {
-              this.router.navigateByUrl("/admin-signin");
+              this.router.navigateByUrl("/login");
             }
           }
         )

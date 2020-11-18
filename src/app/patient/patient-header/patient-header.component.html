@@ -2,34 +2,28 @@
     <div class="sidebar-inner slimscroll">
       <div id="sidebar-menu" class="sidebar-menu">
         <ul>
-          <li class="menu-title">Main</li>
-          <li class="active">
-            <a [routerLink]="['/patient-home']" routerLinkActive="router-link-active" ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+          <li routerLink="/patient/find-doctor" routerLinkActive="active" >
+            <a [routerLink]="['/patient/find-doctor']" routerLinkActive="router-link-active" ><i class="fa fa-search"></i> <span>Trouver un Médecin</span></a>
           </li>
-          <li>
-            <a [routerLink]="['/find-doctor']" routerLinkActive="router-link-active" ><i class="fa fa-user-md"></i> <span>Trouver un Médecin</span></a>
+          <li routerLink="/patient/rdv" routerLinkActive="active">
+            <a [routerLink]="['/patient/rdv']" routerLinkActive="router-link-active" ><i class="fa fa-calendar"></i> <span>Mes rendez-vous</span></a>
           </li>
-          <li>
-            <a [routerLink]="['/patient-booking']" routerLinkActive="router-link-active" ><i class="fa fa-wheelchair"></i> <span>Mes RDV</span></a>
+          <li routerLink="/patient/doctor-booking" routerLinkActive="active">
+            <a [routerLink]="['/patient/consultations']" routerLinkActive="router-link-active" ><i class="fa fa-laptop-medical"></i> <span>Téléconsultations</span></a>
           </li>
-          <li class="submenu">
-            <a href="#"><i class="fa fa-video camera"></i> <span> Fichiers</span> <span class="fa fa-plus"></span></a>
+          <li class="submenu" >
+            <a href="#"><i class="fa fa-file "></i> <span> Mes dossiers</span> <span class="fa fa-greater-than"></span></a>
             <ul style="display: none;">
-              <li><a [routerLink]="['/patient-medical-profile']" routerLinkActive="router-link-active" >Dossier Médical</a></li>
-              <li><a [routerLink]="['/patient-tests-list']" routerLinkActive="router-link-active">Examens</a></li>
-              <li><a [routerLink]="['/patient-drug-list']" routerLinkActive="router-link-active">Ordonnances</a></li>
+              <li routerLink="/patient-medical-profile" routerLinkActive="active" ><a [routerLink]="['/patient-medical-profile']" routerLinkActive="router-link-active" >Dossier Médical</a></li>
+              <li routerLink="/patient-tests-list" routerLinkActive="active"><a [routerLink]="['/patient-tests-list']" routerLinkActive="router-link-active">Examens</a></li>
+              <li routerLink="/patient-drug-list" routerLinkActive="active"><a [routerLink]="['/patient-drug-list']" routerLinkActive="router-link-active">Ordonnances</a></li>
             </ul>
           </li>
-          <li>
-            <a [routerLink]="['/chat']" routerLinkActive="router-link-active" ><i class="fa fa-comments"></i> <span>Chat</span> <span
-                class="badge badge-pill bg-primary float-right">5</span></a>
+          <li routerLink="/patient/messages" routerLinkActive="active">
+            <a [routerLink]="['patient/messages']" routerLinkActive="router-link-active" ><i class="fa fa-mail-bulk"></i> <span>Messagerie</span> </a>
           </li>
-          <li class="submenu">
-            <a href="#"><i class="fa fa-video camera"></i> <span> Appels</span> <span class="fa fa-plus"></span></a>
-            <ul style="display: none;">
-              <li><a [routerLink]="['/voice-call']" routerLinkActive="router-link-active" >Appel Vocal</a></li>
-              <li><a [routerLink]="['/video-call']" routerLinkActive="router-link-active">Appel Video</a></li>
-            </ul>
+          <li  routerLink="/patient/home" routerLinkActive="active">
+            <a [routerLink]="['/patient']" routerLinkActive="active" ><i class="fa fa-wrench"></i> <span>Mon compte</span></a>
           </li>
         </ul>
       </div>

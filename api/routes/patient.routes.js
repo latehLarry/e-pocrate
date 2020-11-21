@@ -8,6 +8,7 @@ const jwtHelper = require("../config/jwtHelper");
 patRouter.post("/", extractPhoto, ctrlPatient.patRegister);
 patRouter.post("/bookings/", jwtHelper.verifyJwtToken, ctrlPatient.addBooking);
 patRouter.get("/bookings/", jwtHelper.verifyJwtToken, ctrlPatient.getBookings);
+patRouter.get("/files/", jwtHelper.verifyJwtToken, ctrlPatient.getFiles);
 patRouter.get("/patients-list", ctrlPatient.getAllPatients);
 patRouter.get("/:id", ctrlPatient.getPatientById);
 

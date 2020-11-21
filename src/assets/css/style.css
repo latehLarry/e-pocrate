@@ -86,7 +86,9 @@ body {
   .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #09AEA9 !important;
 }
-
+.mat-form-field{
+  width: 100% !important;
+}
 hr {
   box-sizing: content-box;
   height: 0;

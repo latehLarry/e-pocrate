@@ -13,7 +13,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class PatientRdvComponent implements OnInit {
 
-  isLoading = false;
+  isLoading = true;
   searchText = '';
   displayedList = [];
   bookings: any = [];
@@ -26,6 +26,7 @@ export class PatientRdvComponent implements OnInit {
     this.displayedList = this.bookings;
     this.patientService.getBookings()
     .subscribe((data: any) => {
+      this.isLoading = false;
       this.bookings = data.bookings.filter(f => f.type === 'rdv');
       this.displayedList = data.bookings;
       });

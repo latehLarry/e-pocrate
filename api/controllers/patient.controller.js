@@ -77,6 +77,20 @@ exports.getBookings = async (req, res) => {
     })
   }
 }
+exports.getFiles = async (req, res) => {
+  try {
+    let patient = await Patient.findOne({userId: req._id});
+    let files = await userService.getFiles(patient._id)
+    res.send({
+      files
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(406).send({
+      message: 'erreur lors de la réservation'
+    })
+  }
+}
 
 //fetch all Patients
 exports.getAllPatients = (req, res, next) => {

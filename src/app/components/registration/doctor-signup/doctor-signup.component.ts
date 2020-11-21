@@ -97,5 +97,13 @@ export class DoctorSignupComponent implements OnInit {
     });
   }
 
+  onCountrySelected(event, name) {
+    console.log('evet', event)
+    const value = event.name;
+    this.docReg[name] = value;
+    this.docReg[name].setValue(value);
+    console.log("docReg", this.docReg);
+  }
+
 
 }

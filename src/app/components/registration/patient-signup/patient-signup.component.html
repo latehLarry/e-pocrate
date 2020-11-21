@@ -122,8 +122,16 @@
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label for=""></label>
-                        <input type="text" class="form-control" formControlName="country"  aria-describedby="helpId"
-                          placeholder="Pays">
+                        <mat-select-country 
+                        appearance="fill"
+                          (onCountrySelected)="onCountrySelected($event, 'country')"
+                          formControlName="country"
+                          appearance="outline"
+                          class="col-sm-12"
+                          label="Pays"
+                          placeHolder="Choisir pays"
+                          >
+                        </mat-select-country>
                           <span *ngIf="isValid('country')">Ce champ ne peut pas etre vide!</span>
                       </div>
                     </div>

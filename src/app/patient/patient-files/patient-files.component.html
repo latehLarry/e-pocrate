@@ -6,27 +6,28 @@
     <div class="content row">
       <div class="col-sm-12  pr-1">
         <div class="row border-right ">
-          <h6 class="col-sm-12" >Mes rendez-vous </h6>
+          <h6 *ngIf="fileType === 'examen'" class="col-sm-12" >Mes examens </h6>
+          <h6 *ngIf="fileType === 'drugs'" class="col-sm-12" >Mes ordonnances </h6>
         </div>
        
         <hr>
         <div class="row ml-1 border-right">
           <ul class="list-box col-sm-10 row">
-            <li *ngFor="let rdv of displayedList" class="patient-list-item row m-2 col-sm-12"  >
+            <li *ngFor="let file of displayedList" class="patient-list-item row m-2 col-sm-12"  >
 
                 <div  class="patient align-content-center row border-0 col-sm-10 list-item">
                   <div class="col-sm-6">
-                    <span class=" avatar"><i class="fa fa-user" ></i></span>
+                    <span class=" avatar"><i class="fa fa-file" ></i></span>
                     <p class="patient-name" >
-                      <span class="message-author align-middle">Dr. {{rdv.doctorId.name + ' ' + rdv.doctorId.surname}}</span>
+                      <span class="message-author align-middle"> {{file.name}}</span>
                     </p>
                   </div>
                   <div class="col-sm-3">
-                    <p style="cursor: pointer;" class=" m-0  text-success align-middle "><a [routerLink]="[ '/doctor/patients/'+rdv.id]"><span>{{rdv.date.split('T')[0] + 'T' + rdv.time | date: 'medium'}}</span></a> </p>
+                    <p style="cursor: pointer;" class=" m-0  text-success align-middle "><a [routerLink]="[ '/doctor/patients/'+rdv.id]"><span>{{file.date | date: 'medium'}}</span></a> </p>
 
                   </div>
                   <div class="col-sm-3">
-                    <p class=" align-middle">{{rdv.complain }}</p>
+                    <p class=" align-middle">Par Dr. {{file.doctor.name }}</p>
 
                   </div>
                 </div>
@@ -37,7 +38,7 @@
                 </div>
 
             </li>
-            <li *ngIf="!displayedList.length && !isLoading" > aucun rendez vous pour l'instant </li>
+            <li *ngIf="!displayedList.length && !isLoading" > aucun fichier pour l'instant </li>
             <li *ngIf="isLoading" > <mat-spinner> Veillez Patienter!</mat-spinner> </li>
           </ul>
           

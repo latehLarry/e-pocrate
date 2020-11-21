@@ -81,6 +81,10 @@ export class PatientService {
   getBookings() {
     return this.http.get(BACKEND_URL + '/bookings');
   }
+
+  getFiles() {
+    return this.http.get(BACKEND_URL + '/files');
+  }
   addBooking(booking) {
     return this.http.post(BACKEND_URL + '/bookings', booking);
   }

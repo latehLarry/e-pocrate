@@ -1,4 +1,5 @@
 import { AdminAuthGuard } from './auth/admin/admin-auth.guard';
+import { UserAuthGuard } from './auth/user/user-auth.guard';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { AdminAuthInterceptor } from './auth/admin/admin-auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,9 @@ import {
   MatInputModule,
   MAT_INPUT_VALUE_ACCESSOR,
 } from '@angular/material/input';
+import {
+  MatDatepicker, MatDatepickerModule, MatDatepickerToggle,
+} from '@angular/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +58,7 @@ import { DoctorHomeComponent } from './doctor/doctor-home/doctor-home.component'
 import { PatientHomeComponent } from './patient/patient-home/patient-home.component';
 import { PatientProfilComponent } from './patient/patient-profil/patient-profil.component';
 import { PatientRdvComponent } from './patient/patient-rdv/patient-rdv.component';
+import { PatientFilesComponent } from './patient/patient-files/patient-files.component';
 import { PatientConsultationComponent } from './patient/patient-consultation/patient-consultation.component';
 import { PatientMessageComponent } from './patient/patient-message/patient-message.component';
 import { FindDoctorComponent } from './patient/find-doctor/find-doctor.component';
@@ -128,7 +133,8 @@ import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor
     PatientProfilComponent,
     PatientMessageComponent,
     PatientRdvComponent,
-    PatientConsultationComponent
+    PatientConsultationComponent,
+    PatientFilesComponent
   ],
   imports: [
     BrowserModule,
@@ -148,7 +154,8 @@ import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
-    MatSelectCountryModule.forRoot('fr')
+    MatSelectCountryModule.forRoot('fr'),
+    MatDatepickerModule,
   ],
   providers: [
     {
@@ -158,6 +165,7 @@ import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor
     },
     AdminService,
     AdminAuthGuard,
+    UserAuthGuard
   ],
   bootstrap: [AppComponent],
 })

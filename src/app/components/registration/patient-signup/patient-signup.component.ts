@@ -83,5 +83,11 @@ export class PatientSignupComponent implements OnInit {
 
   }
 
-
+  onCountrySelected(event, name) {
+    console.log('evet', event);
+    const value = event.name;
+    this.patReg[name] = value;
+    this.patReg[name].setValue(value);
+    console.log("patReg", this.patReg);
+  }
 }

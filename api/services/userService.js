@@ -59,3 +59,7 @@ let Sibling = require('../models/sibling.model');
     })
     .populate(['userId', 'doctorId'])
   }
+
+  exports.getFiles = async (userId) => {
+    return [];
+  }

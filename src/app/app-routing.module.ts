@@ -38,6 +38,8 @@ import { PatientProfilComponent } from './patient/patient-profil/patient-profil.
 import { PatientMessageComponent } from './patient/patient-message/patient-message.component';
 import { PatientRdvComponent } from './patient/patient-rdv/patient-rdv.component';
 import { PatientConsultationComponent } from './patient/patient-consultation/patient-consultation.component';
+import { UserAuthGuard } from './auth/user/user-auth.guard';
+import { PatientFilesComponent } from './patient/patient-files/patient-files.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -113,14 +115,17 @@ const routes: Routes = [
   { path: 'nos-tarifs', component: PricingComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'know-us', component: KnowusComponent },
-  { path: 'patient/find-doctor', component: FindDoctorComponent },
+  { path: 'patient/find-doctor', canActivate: [UserAuthGuard], component: FindDoctorComponent },
   { path: 'patient/doctor-info/:doctorId', component: ViewDoctorInfoComponent },
   { path: 'patient/doctor-booking/:doctorId', component: ConsultationBookingComponent },
+  { path: 'patient/files', component: PatientFilesComponent },
   { path: 'patient/:patId', component: PatientDetailsComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    anchorScrolling: 'enabled',
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

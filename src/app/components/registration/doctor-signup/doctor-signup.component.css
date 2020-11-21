@@ -13,7 +13,9 @@
   background-repeat: no-repeat;
   background-size: 105% 95%;
 }
-
+.mat-form-field{
+  width: 100% !important;
+}
 .epocrate-main .epocrate-banner .epocrate-title h3 {
   padding-top: 120px;
   font-weight: 500;

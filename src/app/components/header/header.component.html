@@ -23,10 +23,10 @@
                 <a class="nav-link" [routerLink]="['/doctor-signup']">Je suis médecin</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/find-doctor']">Trouver un médecin</a>
+                <a class="nav-link" [routerLink]="['/patient/find-doctor']">Trouver un médecin</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
+                <a class="nav-link" style="cursor: pointer;"  (click)="scrollTo('footerContact')" >Contact</a>
             </li>
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">

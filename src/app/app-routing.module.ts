@@ -40,6 +40,7 @@ import { PatientRdvComponent } from './patient/patient-rdv/patient-rdv.component
 import { PatientConsultationComponent } from './patient/patient-consultation/patient-consultation.component';
 import { UserAuthGuard } from './auth/user/user-auth.guard';
 import { PatientFilesComponent } from './patient/patient-files/patient-files.component';
+import { PharmacieComponent } from './components/pharmacie/pharmacie.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'pharmacie',
+    component: PharmacieComponent,
   },
   {
     path: 'doctor-message',

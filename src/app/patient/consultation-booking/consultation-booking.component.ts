@@ -36,6 +36,93 @@ export class ConsultationBookingComponent implements OnInit, AfterViewInit {
     cardCvc: "",
     touched: false
   };
+  bookingPricing = {
+    generalist: {
+      day: 25,
+      night: 55,
+      midnight: 75,
+      weekend_fees: 20
+    },
+    dentiste: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    gyneco_sage_femme: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    cardio: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    dermato: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    pediatre: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    allerlogie: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    nutri_diet: {
+      day: 45,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    pneumo: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    rhumatologue: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    orthopedie: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    psychatre: {
+      day: 45,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    orthophone: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    },
+    orthodone: {
+      day: 30,
+      night: 60,
+      midnight: 75,
+      weekend_fees: 25
+    }
+  };
+  price = 0;
     constructor(
       private doctorService: DoctorService,
       private patientService: PatientService,
@@ -83,6 +170,36 @@ export class ConsultationBookingComponent implements OnInit, AfterViewInit {
     }
     ngAfterViewInit() {
       this.setupStripe();
+    }
+
+    processPrice() {
+      const specialite = 'generalist';
+      const isWeekEnd = this.isWeekEnd();
+      const dayTime = this.getBookingDayTime();
+      const normalPrice = this.bookingPricing[specialite][dayTime];
+      const fees =  isWeekEnd ?  this.bookingPricing[specialite]['weekend_fees'] : 0;
+      const feesDeplacement = this.booking.type === 'rdv' ? 7.50 : 0;
+      return normalPrice + fees + feesDeplacement;
+    }
+
+    isWeekEnd() {
+      const bookingDate = new  Date(this.booking.date);
+      const day = bookingDate.getDay();
+      return day === 0 || day === 6;
+    }
+
+    getBookingDayTime() {
+      const bookingDate = new Date(this.booking.date + 'T' + this.booking.time);
+      console.log({bookingDate});
+      const hour = bookingDate.getHours();
+      console.log({hour});
+      if (hour >= 8 && hour < 20) {
+        return 'day';
+      } else if (hour >= 20) {
+        return 'night';
+      } else if (hour >= 0 && hour < 8) {
+        return 'midnight';
+      }
     }
 
     setupStripe() {

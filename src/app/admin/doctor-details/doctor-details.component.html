@@ -27,7 +27,7 @@
                                 <div class="col-md-5">
                                     <div class="profile-info-left">
                                         <h3 class="user-name m-t-0 mb-0">Dr. {{docs.name}} {{docs.surname}}</h3>
-                                        <small class="text-muted">{{docs.spec}}</small>
+                                        <small class="text-muted">{{docs.spec.label}}</small>
                                         <div class="staff-id">Doctor ID : {{docs.id}}</div>
                                         <div class="staff-msg"><a [routerLink]="['/chat', docs.id]"  class="btn btn-primary">Envoyer un Méssage</a></div>
                                     </div>

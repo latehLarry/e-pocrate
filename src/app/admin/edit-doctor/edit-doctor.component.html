@@ -104,8 +104,13 @@
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label for="">Specialisation</label>
-                        <input type="text" class="form-control" formControlName="spec"  aria-describedby="helpId"
-                          placeholder="{{docs.spec}}">
+                        <ng-select
+                        formControlName="spec"
+                        placeholder="Spécialité"
+                        bindLabel="label" 
+                        [items]="specialist" >
+
+                        </ng-select>
                       </div>
                     </div>
                   </div> <br>

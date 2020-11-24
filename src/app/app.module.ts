@@ -36,6 +36,8 @@ import { ChooseSignupComponent } from './components/registration/choose-signup/c
 import { ChooseSigninComponent } from './components/signin/choose-signin/choose-signin.component';
 import { DoctorSigninComponent } from './components/signin/doctor-signin/doctor-signin.component';
 import { PatientSigninComponent } from './components/signin/patient-signin/patient-signin.component';
+import { PharmacieComponent } from './components/pharmacie/pharmacie.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -80,6 +82,7 @@ import { DoctorMessageComponent } from './doctor/doctor-message/doctor-message.c
 import { DoctorPatientsListComponent } from './doctor/doctor-patients-list/doctor-patients-list.component';
 import { DoctorPatientDetailsComponent } from './doctor/doctor-patient-details/doctor-patient-details.component';
 import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor-consultation.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,7 +137,9 @@ import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor
     PatientMessageComponent,
     PatientRdvComponent,
     PatientConsultationComponent,
-    PatientFilesComponent
+    PatientFilesComponent,
+    PharmacieComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -156,6 +161,7 @@ import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor
     CommonModule,
     MatSelectCountryModule.forRoot('fr'),
     MatDatepickerModule,
+    NgSelectModule
   ],
   providers: [
     {

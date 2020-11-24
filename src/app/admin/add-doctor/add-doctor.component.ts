@@ -14,6 +14,7 @@ export class AddDoctorComponent {
   docReg: FormGroup;
   preview: string;
   isLoading = false;
+  specialist = [];
   private doctorId: string;
 
   constructor(
@@ -21,6 +22,7 @@ export class AddDoctorComponent {
     private activeRoute: ActivatedRoute,
     private router: Router
   ) {
+    this.specialist = this.doctorService.getSpecialityList();
     this.docs = new Doctor();
     this.docReg = new FormGroup({
       name: new FormControl(null, { validators: [Validators.required] }),

@@ -5,6 +5,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-doctor-list',
@@ -14,7 +16,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class DoctorListComponent implements OnInit {
 
   isLoading = false;
-  constructor(private doctorService: DoctorService, private router: Router) { }
+  constructor(private doctorService: DoctorService, private router: Router, public dialog: MatDialog) { }
   listData: MatTableDataSource<any>;
   doctors: Doctor[] = [];
   displayedColumns: string[] = ['Médecin', 'Photo', 'Email', 'Country', 'Status', 'Actions'];
@@ -37,9 +39,24 @@ export class DoctorListComponent implements OnInit {
     this.listData.filter = this.searchkey.trim().toLowerCase();
   }
 
+  confirmDialog(doctorId): void {
+
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      maxWidth: "400px",
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.onDelete(doctorId);
+      }
+    });
+  }
+
   onDelete(doctorId: string) {
     this.doctorService.deleteDoctor(doctorId).subscribe(res => {
-      this.router.navigate(["/doctors-list"]);
+      window.location.reload();
     })
   }
 

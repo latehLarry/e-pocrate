@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PatientService } from './../../services/patient/patient.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-patient-list',
@@ -14,7 +16,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class PatientListComponent implements OnInit {
 
   isLoading = false;
-  constructor(private patientService: PatientService, private router: Router) { }
+  constructor(private patientService: PatientService, private router: Router, public dialog: MatDialog) { }
   listData: MatTableDataSource<any>;
   doctors: Patient[] = [];
   displayedColumns: string[] = ['Patient', 'Photo', 'Email', 'Country', 'Status', 'Actions'];
@@ -32,7 +34,18 @@ export class PatientListComponent implements OnInit {
       this.listData.paginator = this.paginator;
     })
   }
+  confirmDialog(doctorId): void {
 
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      maxWidth: "400px",
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+
+    });
+  }
   applyFilter() {
     this.listData.filter = this.searchkey.trim().toLowerCase();
   }

@@ -14,6 +14,7 @@ export class EditDoctorComponent implements OnInit {
   docReg: FormGroup;
   preview: string;
   isLoading = false;
+  specialist = [];
   private doctorId: string;
 
   constructor(private doctorService: DoctorService, private activeRoute: ActivatedRoute, private router: Router) { 
@@ -41,6 +42,7 @@ export class EditDoctorComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.specialist = this.doctorService.getSpecialityList();
     this.activeRoute.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has("doctorId")) {
         this.doctorId = paramMap.get("doctorId");

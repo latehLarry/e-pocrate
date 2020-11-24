@@ -14,6 +14,7 @@ export class DoctorSignupComponent implements OnInit {
   doctors = [];
   orders: string[] = ['Oui', 'Non'];
   isLoading = false;
+  specialist = [];
 
 
   constructor(private doctorService: DoctorService, private router: Router) {
@@ -43,7 +44,7 @@ export class DoctorSignupComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  
+    this.specialist = this.doctorService.getSpecialityList();
   }
 
   isValid(controlName) {
@@ -80,14 +81,14 @@ export class DoctorSignupComponent implements OnInit {
         this.docReg.value.photo,
         this.docReg.value.address,
         this.docReg.value.postal_code,
-        this.docReg.value.country,
+        this.docReg.value.country.name,
         this.docReg.value.city,
         this.docReg.value.spec,
         this.docReg.value.ref_no,
         this.docReg.value.doc_order,
         this.docReg.value.faculty,
         this.docReg.value.city_obt,
-        this.docReg.value.ctry_obt,
+        this.docReg.value.ctry_obt.name,
         this.docReg.value.username,
         this.docReg.value.gender,
         this.docReg.value.password,
@@ -99,9 +100,9 @@ export class DoctorSignupComponent implements OnInit {
 
   onCountrySelected(event, name) {
     console.log('evet', event)
-    const value = event.name;
-    this.docReg[name] = value;
-    this.docReg[name].setValue(value);
+    // const value = event.name;
+    // this.docReg[name] = value;
+    // this.docReg[name].setValue(value);
     console.log("docReg", this.docReg);
   }
 

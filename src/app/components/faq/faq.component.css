@@ -11,8 +11,8 @@ table tr td:nth-child(-n + 3):not(:nth-child(-n +1)) {
 
 .card-header {
   color: #09AEA9;
-  font-family: 'Nunito';
+  font-family: 'Nunito' !important;
 }
 .card-body {
-  font-family: 'Nunito';
+  font-family: 'Nunito' !important;
 }

@@ -58,7 +58,7 @@
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label for=""></label>
-                        <input type="text" class="form-control" formControlName="email"  aria-describedby="helpId"
+                        <input type="email" class="form-control" formControlName="email"  aria-describedby="helpId"
                           placeholder="Email*">
                           <span *ngIf="isValid('email')">Ce champ ne peut pas etre vide!</span>
                       </div>
@@ -161,10 +161,15 @@
                     </div>
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
-                        <label for=""></label>
-                        <input type="text" class="form-control" formControlName="spec"  aria-describedby="helpId"
-                          placeholder="Specialité*">
-                          <span *ngIf="isValid('spec')">Ce champ ne peut pas etre vide!</span>
+
+                        <ng-select
+                        formControlName="spec"
+                        placeholder="Spécialité"
+                        bindLabel="label" 
+                        [items]="specialist" >
+
+                        </ng-select>
+                       
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -199,8 +204,17 @@
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label for=""></label>
-                        <input type="text" class="form-control" formControlName="ctry_obt"  aria-describedby="helpId"
-                          placeholder="Pays">
+                        <mat-select-country 
+                        appearance="fill"
+                          (onCountrySelected)="onCountrySelected($event, 'ctry_obt')"
+                          formControlName="ctry_obt"
+                          appearance="outline"
+                          class="col-sm-12"
+                          label="Pays"
+                          placeHolder="Choisir pays"
+                          >
+                        </mat-select-country>
+                        
                           <span *ngIf="isValid('ctry_obt')">Ce champ ne peut pas etre vide!</span>
                       </div>
                     </div><br>
@@ -237,7 +251,7 @@
               </form>
             </mat-horizontal-stepper>
             <p class="mb-0">
-              <a [routerLink]="['/doctor-signin']" class="text-dark font-weight-bold">Vous avez déja un compte? Cliquez ici</a>
+              <a [routerLink]="['/login']" class="text-dark font-weight-bold">Vous avez déja un compte? Cliquez ici</a>
           </p>
           </div>
         </div>

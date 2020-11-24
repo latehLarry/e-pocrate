@@ -52,7 +52,7 @@ export class DoctorService {
     postData.append('postal_code', postal_code);
     postData.append('country', country);
     postData.append('city', city);
-    postData.append('spec', spec);
+    postData.append('spec', JSON.stringify(spec));
     postData.append('ref_no', ref_no);
     postData.append('doc_order', doc_order);
     postData.append('faculty', faculty);
@@ -218,7 +218,7 @@ export class DoctorService {
       postData.append('postal_code', postal_code);
       postData.append('country', country);
       postData.append('city', city);
-      postData.append('spec', spec);
+      postData.append('spec', JSON.stringify(spec));
       postData.append('ref_no', ref_no);
       postData.append('doc_order', doc_order);
       postData.append('faculty', faculty);
@@ -266,5 +266,65 @@ export class DoctorService {
 
   deleteDoctor(doctorId: string) {
     return this.http.delete(BACKEND_URL + '/' + doctorId);
+  }
+  getSpecialityList() {
+    return [
+      {
+        value: 'generalist',
+        label: "Médecin Généraliste"
+      },
+      {
+        value: 'dentiste',
+        label: 'Dentiste'
+      },
+      {
+        value: 'gyneco_sage_femme',
+        label: "Gynecologue/Sage femme"
+      },
+      {
+        value: 'cardio',
+        label: 'Cardiologue'
+      },
+      {
+        value: 'dermato',
+        label: 'Dermatologue'
+      },
+      {
+        value: 'pediatre',
+        label: 'Pédiatre'
+      },
+      {
+        value: 'allerlogie',
+        label: 'Médecin allerlologue' 
+      },
+      {
+        value: 'nutri_diet',
+        label: 'Nutritioniste/Dieteticien' 
+      },
+      {
+        value: 'pneumo',
+        label: 'Pneumologue'
+      },
+      {
+        value: 'rhumatologue',
+        label: 'Rhumatologue'
+      },
+      {
+        value: 'orthopedie',
+        label: 'CHIRUGIEN ORTHOPEDIQUE'
+      },
+      {
+        value: 'psychatre',
+        label: 'Psychatre'
+      },
+      {
+        value: 'orthophone',
+        label: 'Orthophoniste'
+      },
+      {
+        value: 'orthodone',
+        label: 'ORTHODONTISTE'
+      }
+    ];
   }
 }

@@ -16,7 +16,14 @@ let docSchema = new Schema ({
   postal_code: { type: String, required: "SVP entrer votre code postal!" },
   country: { type: String, required: "SVP entrer votre pays de résidence!" },
   city: { type: String, required: "SVP entrer votre ville de résidence!" },
-  spec: { type: String, required: "SVP entrer votre specialisation!"},
+  spec: {
+    value: {
+      type: String
+    },
+    label: {
+      type: String
+    }
+  },
   ref_no: { type: String, required: "SVP entrer votre numero d\'agrement!" },
   doc_order: { type: String, required: "SVP remplissez le champ suivant Étes-vous inscrit au tableau de l\'ordre des médecins de votre pays?!" },
   faculty: { type: String, required: "SVP remplissez votre faculté!" },

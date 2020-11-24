@@ -3,7 +3,7 @@ const Cv = require("../models/cv.model");
 const nodemailer = require("nodemailer");
 const { error } = require("protractor");
 const { mailService } = require("../services/mailService");
-const { userService } = require("../services/userService");
+const userService = require("../services/userService");
 //SMPTP credentialls
 const transporter = nodemailer.createTransport({
   host: "mail.e-pocrate.com", //smtp url
@@ -17,8 +17,9 @@ const transporter = nodemailer.createTransport({
 
 exports.docRegister = async (req, res, next) => {
   const url = req.protocol + "://" + req.get("host");
-  let {username} = req.body;
-  let userAlreadyExist = userService.getUserByUsername(username);
+  let {email} = req.body;
+  console.log("req.body", req.body);
+  let userAlreadyExist = await userService.getUserByUsername(email);
   if (userAlreadyExist) {
     return res
       .status(406)
@@ -36,7 +37,7 @@ exports.docRegister = async (req, res, next) => {
     postal_code: req.body.postal_code,
     country: req.body.country,
     city: req.body.city,
-    spec: req.body.spec,
+    spec: JSON.parse(req.body.spec),
     ref_no: req.body.ref_no,
     doc_order: req.body.doc_order,
     faculty: req.body.faculty,

@@ -10,7 +10,7 @@ export class Doctor {
   postal_code: string;
   country: string;
   city: string;
-  spec: string;
+  spec: any;
   ref_no: string;
   doc_order: string;
   faculty: string;

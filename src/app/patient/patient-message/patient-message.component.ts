@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { PatientService } from '../../services/patient/patient.service';
 
 @Component({
@@ -14,14 +15,22 @@ export class PatientMessageComponent implements OnInit {
   doctor = {
     id: "test"
   }
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService, private doctorService: DoctorService) { }
 
   ngOnInit(): void {
     // this.patientService.loadPatientConversations()
     //   .subscribe(data => {
     //     this.conversations = data;
     //   });
-    this.selectedConversation = this.conversations[0];
+    this.doctorService.getAllDoctors()
+      .subscribe((data: any) => {
+        this.conversations = data.doctors.map(d => {
+          return {
+            contact: d,
+            messages: []
+          };
+        });
+      });
   }
 
   getConversationPreview(conversation) {

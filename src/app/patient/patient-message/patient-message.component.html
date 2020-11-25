@@ -13,9 +13,9 @@
           <ul class="list-box row">
             <li *ngFor="let conversation of conversations" >
 
-                <div (click)="displayConversation(conversation)" [class.active]="conversation.contact.id === this.selectedConversation.contact.id" class="conversation pr-2 list-item">
+                <div (click)="displayConversation(conversation)" [class.active]="selectedConversation && conversation.contact.id === this.selectedConversation.contact.id" class="conversation pr-2 list-item">
                   <div class="message-avatar list-left">
-                    <span class=" avatar">Mr</span>
+                    <span class=" avatar">Dr</span>
                   </div>
                   <div class="list-body">
                     <span class="message-author text-success">{{conversation.contact.name + ' ' + conversation.contact.surname}}</span>
@@ -30,7 +30,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-sm-12 col-md-9">
+      <div *ngIf="selectedConversation" class="col-sm-12 col-md-9">
         <div class="row border-bottom pb-2 align-content-center">
           <div class="col-sm-12">
             <p class="m-auto px-4 discussion-user" >{{this.selectedConversation.contact.name + ' ' + this.selectedConversation.contact.surname}} <span class="float-right" ><i class="fa fa-phone" ></i> <i class="fa fa-video ml-1" ></i></span></p>
@@ -45,13 +45,19 @@
               </div>
             </div> 
           </div>
+          
         </div>
-        <div class="type_msg">
+        <div  class="type_msg">
           <div class="input_msg_write">
             <input (keyup.enter)="sendNewMessage()" [(ngModel)]="typedMessage"  type="text" class="write_msg" placeholder="Type a message" />
             <button class="msg_send_btn" (click)="sendNewMessage()" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
           </div>
         </div>
+    </div>
+    <div *ngIf="!selectedConversation" class="col-sm-12 col-md-9">
+      <p class="m-auto" >
+        Sélectionniez une conversation!!
+      </p>
     </div>
   </div>
 </div>

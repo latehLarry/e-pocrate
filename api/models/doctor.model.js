@@ -33,6 +33,7 @@ let docSchema = new Schema ({
   certify: { type: String },
   creation_date: { type: Date, required: true },
   active: { type: Boolean, required: true },
+  blocked: { type: Boolean, required: true, default: false },
   salt_secret: String,
   userId: {type: ObjectId, ref: 'User'}
 });

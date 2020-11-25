@@ -11,12 +11,11 @@
           <li routerLink="/patient/doctor-booking" routerLinkActive="active">
             <a [routerLink]="['/patient/consultations']" routerLinkActive="router-link-active" ><i class="fa fa-laptop-medical"></i> <span>Téléconsultations</span></a>
           </li>
-          <li  class="submenu" >
-            <a href="#"><i class="fa fa-file "></i> <span> Mes dossiers</span> <span class="fa fa-greater-than"></span></a>
-            <ul style="display: none;">
-              <li routerLink="/patient/files" routerLinkActive="active"><a [routerLink]="['/patient/files']" [queryParams]="{type: 'examen'}" routerLinkActive="router-link-active">Examens</a></li>
-              <li routerLink="/patient/files" routerLinkActive="active"><a [routerLink]="['/patient/files']" [queryParams]="{type: 'drugs'}" routerLinkActive="router-link-active">Ordonnances</a></li>
-            </ul>
+          <li  routerLinkActive="active">
+            <a [routerLink]="['/patient/files']" [queryParams]="{type: 'examen'}" routerLinkActive="router-link-active"><i class="fa fa-file-medical"></i><span>Examens</span> </a>
+          </li>
+          <li  routerLinkActive="active">
+            <a [routerLink]="['/patient/files']" [queryParams]="{type: 'drugs'}" routerLinkActive="router-link-active"><i class="fa fa-capsules"></i><span>Ordonnances</span> </a>
           </li>
           <li routerLink="/patient/messages" routerLinkActive="active">
             <a [routerLink]="['patient/messages']" routerLinkActive="router-link-active" ><i class="fa fa-mail-bulk"></i> <span>Messagerie</span> </a>

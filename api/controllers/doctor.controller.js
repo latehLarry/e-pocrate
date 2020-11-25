@@ -85,7 +85,7 @@ exports.addCv = (req, res, next) => {
 
 //fetch all doctors
 exports.getAllDoctors = (req, res, next) => {
-  Doctor.find().then((data) => {
+  Doctor.find({blocked: false}).then((data) => {
     res.status(200).json({
       message: "Doctors retrieved successfully",
       doctors: data,
@@ -155,7 +155,7 @@ exports.updateDoctorInfo = (req, res, next) => {
 };
 
 exports.deleteDoctor = (req, res, next) => {
-  Doctor.deleteOne({ _id: req.params.id }).then((result) => {
+  Doctor.updateOne({ _id: req.params.id }, {blocked: true}).then((result) => {
     if (result) {
       res.status(200).json({ message: "Delete successful" });
     } else {

@@ -19,6 +19,7 @@ $(document).ready(function($) {
 	function init() {
 		var $this = Sidemenu;
 		$('#sidebar-menu a').on('click', function(e) {
+			console.log("addd")
 			if($(this).parent().hasClass('submenu')) {
 				e.preventDefault();
 			}

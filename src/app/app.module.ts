@@ -83,6 +83,7 @@ import { DoctorPatientsListComponent } from './doctor/doctor-patients-list/docto
 import { DoctorPatientDetailsComponent } from './doctor/doctor-patient-details/doctor-patient-details.component';
 import { DoctorConsultationComponent } from './doctor/doctor-consultation/doctor-consultation.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -161,7 +162,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     MatSelectCountryModule.forRoot('fr'),
     MatDatepickerModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxIntlTelInputModule
   ],
   providers: [
     {

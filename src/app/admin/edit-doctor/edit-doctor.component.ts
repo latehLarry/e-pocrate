@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DoctorService } from './../../services/doctor/doctor.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CountryISO, SearchCountryField, TooltipLabel } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-edit-doctor',
@@ -16,6 +17,9 @@ export class EditDoctorComponent implements OnInit {
   isLoading = false;
   specialist = [];
   private doctorId: string;
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
 
   constructor(private doctorService: DoctorService, private activeRoute: ActivatedRoute, private router: Router) { 
     this.docReg = new FormGroup({

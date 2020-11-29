@@ -2,6 +2,7 @@ import { DoctorService } from './../../../services/doctor/doctor.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CountryISO, SearchCountryField, TooltipLabel } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-doctor-signup',
@@ -15,7 +16,9 @@ export class DoctorSignupComponent implements OnInit {
   orders: string[] = ['Oui', 'Non'];
   isLoading = false;
   specialist = [];
-
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
 
   constructor(private doctorService: DoctorService, private router: Router) {
     this.docReg = new FormGroup({

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { PatientService } from './../../../services/patient/patient.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CountryISO, SearchCountryField, TooltipLabel } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-patient-signup',
@@ -33,6 +34,9 @@ export class PatientSignupComponent implements OnInit {
       certify: new FormControl(null)
     });
    }
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
 
   ngOnInit(): void {
   }

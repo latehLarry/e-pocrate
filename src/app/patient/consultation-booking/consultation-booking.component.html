@@ -11,6 +11,11 @@
             </div>
         </div>
         <div class="row">
+            
+            <div *ngIf="booking.type == 'rdv'" class="alert ml-2 alert-warning">
+                Vous avez choisi la consultation à domicile, le déplacement du médecin est majoré de 5.000 FCFA  soit 7,5 eur
+            </div>
+            
                 <mat-horizontal-stepper  class="col-sm-12" >
                     <mat-step label="Patient">
                         <div class="row">

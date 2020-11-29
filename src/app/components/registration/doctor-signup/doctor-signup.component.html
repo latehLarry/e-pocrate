@@ -50,8 +50,16 @@
                     <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label for=""></label>
-                        <input type="text" class="form-control" formControlName="tel"  aria-describedby="helpId"
-                          placeholder="TelephoneTel*(avec code pays)">
+                        <ngx-intl-tel-input [cssClass]="'form-control'"
+                          [enableAutoCountrySelect]="true"
+                          [enablePlaceholder]="true"
+                          [searchCountryFlag]="true"
+                          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                          [tooltipField]="TooltipLabel.Name"
+                          [phoneValidation]="true"
+                          name="tel"
+                          formControlName="tel">
+                        </ngx-intl-tel-input>
                           <span *ngIf="isValid('tel')">Ce champ ne peut pas etre vide!</span>
                       </div>
                     </div>
